@@ -130,7 +130,7 @@ class GuideController {
     }
 
     const docs = new Docs(params.version)
-    const menu = docs.getMenu().filter((item) => item.category === 'recipes')
+    const menu = docs.getMenu().filter((item) => item.category === '技巧')
     const doc = menu.find((item) => item.permalink === params.permalink)
 
     if (!doc) {
@@ -141,7 +141,7 @@ class GuideController {
     return view.render('docs', {
       doc,
       menu: _.groupBy(menu, 'category'),
-      versions: _.filter(versions, (d, version) => version === '4.0'),
+      versions: _.filter(versions, (d, version) => version === '4.1-zh'),
       currentVersion: params.version,
       htmlContents
     })
