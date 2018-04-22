@@ -1,0 +1,415 @@
+[
+  {
+    "path": "content/4.1-zh/01-introduction/01-about.adoc",
+    "title": "关于AdonisJs",
+    "permalink": "about",
+    "category": "介绍",
+    "savePath": "resources/docs/4.1-zh/about.html"
+  },
+  {
+    "path": "content/4.1-zh/01-introduction/02-upgrade-guide.adoc",
+    "title": "从4.0升级",
+    "permalink": "upgrade-guide",
+    "category": "介绍",
+    "savePath": "resources/docs/4.1-zh/upgrade-guide.html"
+  },
+  {
+    "path": "content/4.1-zh/02-internals/01-ioc-container.adoc",
+    "permalink": "ioc-container",
+    "title": "Ioc容器",
+    "category": "核心",
+    "savePath": "resources/docs/4.1-zh/ioc-container.html"
+  },
+  {
+    "path": "content/4.1-zh/02-internals/02-service-providers.adoc",
+    "permalink": "service-providers",
+    "title": "服务提供者",
+    "category": "核心",
+    "savePath": "resources/docs/4.1-zh/service-providers.html"
+  },
+  {
+    "path": "content/4.1-zh/02-internals/03-ignitor.adoc",
+    "permalink": "ignitor",
+    "title": "Ignitor",
+    "category": "核心",
+    "savePath": "resources/docs/4.1-zh/ignitor.html"
+  },
+  {
+    "path": "content/4.1-zh/03-getting-started/01-installation.adoc",
+    "permalink": "installation",
+    "title": "安装",
+    "category": "起步",
+    "savePath": "resources/docs/4.1-zh/installation.html"
+  },
+  {
+    "path": "content/4.1-zh/03-getting-started/02-folder-structure.adoc",
+    "permalink": "folder-structure",
+    "title": "文件夹结构",
+    "category": "起步",
+    "savePath": "resources/docs/4.1-zh/folder-structure.html"
+  },
+  {
+    "path": "content/4.1-zh/03-getting-started/03-configuration-and-env.adoc",
+    "permalink": "configuration-and-env",
+    "title": "配置和环境变量",
+    "category": "起步",
+    "savePath": "resources/docs/4.1-zh/configuration-and-env.html"
+  },
+  {
+    "path": "content/4.1-zh/03-getting-started/04-number-guessing-game.adoc",
+    "permalink": "number-guessing-game",
+    "title": "猜数字游戏",
+    "category": "起步",
+    "savePath": "resources/docs/4.1-zh/number-guessing-game.html"
+  },
+  {
+    "path": "content/4.1-zh/03-getting-started/05-database.adoc",
+    "permalink": "database-basics",
+    "title": "数据库",
+    "category": "起步",
+    "savePath": "resources/docs/4.1-zh/database-basics.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/01-introduction.adoc",
+    "permalink": "http-context",
+    "title": "介绍",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/http-context.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/02-routing.adoc",
+    "permalink": "routing",
+    "title": "路由",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/routing.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/03-request.adoc",
+    "permalink": "request",
+    "title": "请求",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/request.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/04-response.adoc",
+    "permalink": "response",
+    "title": "响应",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/response.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/05-views.adoc",
+    "permalink": "views",
+    "title": "视图",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/views.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/07-file-uploads.adoc",
+    "permalink": "file-uploads",
+    "title": "文件上传",
+    "category": "http-lifecycle",
+    "savePath": "resources/docs/4.1-zh/file-uploads.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/08-middleware.adoc",
+    "permalink": "middleware",
+    "title": "中间件",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/middleware.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/09-sessions.adoc",
+    "permalink": "sessions",
+    "title": "会话(Sessions)",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/sessions.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/10-authentication.adoc",
+    "permalink": "authentication",
+    "title": "认证",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/authentication.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/11-social-auth.adoc",
+    "permalink": "social-auth",
+    "title": "社交账号认证",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/social-auth.html"
+  },
+  {
+    "path": "content/4.1-zh/04-http-lifecycle/12-handling-exceptions.adoc",
+    "permalink": "exceptions",
+    "title": "错误处理",
+    "category": "HTTP生命周期",
+    "savePath": "resources/docs/4.1-zh/exceptions.html"
+  },
+  {
+    "path": "content/4.1-zh/06-database/01-introduction.adoc",
+    "permalink": "database",
+    "title": "介绍",
+    "category": "数据库",
+    "savePath": "resources/docs/4.1-zh/database.html"
+  },
+  {
+    "path": "content/4.1-zh/06-database/02-query-builder.adoc",
+    "permalink": "query-builder",
+    "title": "查询构建器(Query builder)",
+    "category": "数据库",
+    "savePath": "resources/docs/4.1-zh/query-builder.html"
+  },
+  {
+    "path": "content/4.1-zh/06-database/03-migrations.adoc",
+    "permalink": "migrations",
+    "title": "迁移",
+    "category": "数据库",
+    "savePath": "resources/docs/4.1-zh/migrations.html"
+  },
+  {
+    "path": "content/4.1-zh/06-database/04-seeds.adoc",
+    "permalink": "seeds-and-factories",
+    "title": "数据填充和工厂(Seeds & Factories)",
+    "category": "数据库",
+    "savePath": "resources/docs/4.1-zh/seeds-and-factories.html"
+  },
+  {
+    "path": "content/4.1-zh/06-database/05-redis.adoc",
+    "permalink": "redis",
+    "title": "Redis",
+    "category": "数据库",
+    "savePath": "resources/docs/4.1-zh/redis.html"
+  },
+  {
+    "path": "content/4.1-zh/07-lucid/01-model.adoc",
+    "permalink": "lucid",
+    "title": "Lucid模型",
+    "category": "lucid",
+    "savePath": "resources/docs/4.1-zh/lucid.html"
+  },
+  {
+    "path": "content/4.1-zh/07-lucid/02-lucid-hooks.adoc",
+    "permalink": "database-hooks",
+    "title": "钩子(Hooks)",
+    "category": "lucid",
+    "savePath": "resources/docs/4.1-zh/database-hooks.html"
+  },
+  {
+    "path": "content/4.1-zh/07-lucid/03-getters-and-setters.adoc",
+    "permalink": "database-getters-setters",
+    "title": "访问器和修改器(Getters & Setters)",
+    "category": "lucid",
+    "savePath": "resources/docs/4.1-zh/database-getters-setters.html"
+  },
+  {
+    "path": "content/4.1-zh/07-lucid/04-relationships.adoc",
+    "permalink": "relationships",
+    "title": "关联",
+    "category": "lucid",
+    "savePath": "resources/docs/4.1-zh/relationships.html"
+  },
+  {
+    "path": "content/4.1-zh/07-lucid/05-serializers.adoc",
+    "permalink": "serializers",
+    "title": "序列化器(Serializers)",
+    "category": "lucid",
+    "savePath": "resources/docs/4.1-zh/serializers.html"
+  },
+  {
+    "path": "content/4.1-zh/07-lucid/06-traits.adoc",
+    "permalink": "traits",
+    "title": "特性(Traits)",
+    "category": "lucid",
+    "savePath": "resources/docs/4.1-zh/traits.html"
+  },
+  {
+    "path": "content/4.1-zh/08-websockets/01-introduction.adoc",
+    "permalink": "websocket",
+    "title": "介绍",
+    "category": "websockets",
+    "savePath": "resources/docs/4.1-zh/websocket.html"
+  },
+  {
+    "path": "content/4.1-zh/08-websockets/02-philosophy.adoc",
+    "permalink": "websocket-philosophy",
+    "title": "理念",
+    "category": "websockets",
+    "savePath": "resources/docs/4.1-zh/websocket-philosophy.html"
+  },
+  {
+    "path": "content/4.1-zh/08-websockets/03-server.adoc",
+    "permalink": "websocket-server",
+    "title": "Websocket服务器",
+    "category": "websockets",
+    "savePath": "resources/docs/4.1-zh/websocket-server.html"
+  },
+  {
+    "path": "content/4.1-zh/08-websockets/04-client.adoc",
+    "permalink": "websocket-client",
+    "title": "Websocket客户端",
+    "category": "websockets",
+    "savePath": "resources/docs/4.1-zh/websocket-client.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/01-validator.adoc",
+    "permalink": "validator",
+    "title": "验证器",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/validator.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/02-encryption-and-hashing.adoc",
+    "permalink": "encryption-and-hashing",
+    "title": "加密和散列",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/encryption-and-hashing.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/03-ace-commands.adoc",
+    "permalink": "ace",
+    "title": "Ace命令",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/ace.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/04-mail.adoc",
+    "permalink": "mail",
+    "title": "邮件",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/mail.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/05-events.adoc",
+    "permalink": "events",
+    "title": "事件",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/events.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/06-file-system.adoc",
+    "permalink": "file-system",
+    "title": "文件系统",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/file-system.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/07-logger.adoc",
+    "permalink": "logger",
+    "title": "日志",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/logger.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/08-internationalization.adoc",
+    "permalink": "internationalization",
+    "title": "国际化",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/internationalization.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/09-helpers.adoc",
+    "permalink": "helpers",
+    "title": "助手(Helpers)",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/helpers.html"
+  },
+  {
+    "path": "content/4.1-zh/09-cookbooks/10-extending-adonisjs.adoc",
+    "permalink": "extending-adonisjs",
+    "title": "扩展AdonisJs",
+    "category": "手册",
+    "savePath": "resources/docs/4.1-zh/extending-adonisjs.html"
+  },
+  {
+    "path": "content/4.1-zh/10-testing/01-introduction.adoc",
+    "permalink": "testing",
+    "title": "介绍",
+    "category": "测试",
+    "savePath": "resources/docs/4.1-zh/testing.html"
+  },
+  {
+    "path": "content/4.1-zh/10-testing/02-api-tests.adoc",
+    "permalink": "api-tests",
+    "title": "REST API测试",
+    "category": "测试",
+    "savePath": "resources/docs/4.1-zh/api-tests.html"
+  },
+  {
+    "path": "content/4.1-zh/10-testing/03-browser-tests.adoc",
+    "permalink": "browser-tests",
+    "title": "浏览器测试",
+    "category": "测试",
+    "savePath": "resources/docs/4.1-zh/browser-tests.html"
+  },
+  {
+    "path": "content/4.1-zh/10-testing/04-testing-fakes.adoc",
+    "permalink": "testing-fakes",
+    "title": "测试模拟器和助手",
+    "category": "测试",
+    "savePath": "resources/docs/4.1-zh/testing-fakes.html"
+  },
+  {
+    "path": "content/4.1-zh/11-web-security/01-introduction.adoc",
+    "permalink": "security-introduction",
+    "title": "介绍",
+    "category": "Web安全",
+    "savePath": "resources/docs/4.1-zh/security-introduction.html"
+  },
+  {
+    "path": "content/4.1-zh/11-web-security/02-csrf.adoc",
+    "permalink": "csrf",
+    "title": "CSRF保护",
+    "category": "Web安全",
+    "savePath": "resources/docs/4.1-zh/csrf.html"
+  },
+  {
+    "path": "content/4.1-zh/11-web-security/03-cors.adoc",
+    "permalink": "cors",
+    "title": "CORS",
+    "category": "Web安全",
+    "savePath": "resources/docs/4.1-zh/cors.html"
+  },
+  {
+    "path": "content/4.1-zh/11-web-security/04-shield-middleware.adoc",
+    "permalink": "shield",
+    "title": "Shield中间件",
+    "category": "Web安全",
+    "savePath": "resources/docs/4.1-zh/shield.html"
+  },
+  {
+    "path": "content/4.1-zh/recipes/01-nginx-proxy.adoc",
+    "permalink": "nginx-proxy",
+    "title": "Nginx代理",
+    "category": "技巧",
+    "savePath": "resources/docs/4.1-zh/nginx-proxy.html"
+  },
+  {
+    "path": "content/4.1-zh/recipes/02-dev-domains.adoc",
+    "permalink": "dev-domains",
+    "title": "使用.dev域名",
+    "category": "技巧",
+    "savePath": "resources/docs/4.1-zh/dev-domains.html"
+  },
+  {
+    "path": "content/4.1-zh/recipes/03-frontend-assets.adoc",
+    "permalink": "frontend-assets",
+    "title": "管理前端资源",
+    "category": "技巧",
+    "savePath": "resources/docs/4.1-zh/frontend-assets.html"
+  },
+  {
+    "path": "content/4.1-zh/recipes/04-why-adonis-install.adoc",
+    "permalink": "why-adonis-install",
+    "title": "为什么要使用Adonis install?",
+    "category": "技巧",
+    "savePath": "resources/docs/4.1-zh/why-adonis-install.html"
+  },
+  {
+    "path": "content/4.1-zh/recipes/05-https.adoc",
+    "permalink": "using-https",
+    "title": "使用Https",
+    "category": "技巧",
+    "savePath": "resources/docs/4.1-zh/using-https.html"
+  }
+]

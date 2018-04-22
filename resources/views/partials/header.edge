@@ -4,6 +4,7 @@
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <img src="{{ assetsUrl('images/header-logo.svg') }}" width="120" height="33">
+          <span style="margin:0 1em;">中国</span>
         </a>
 
         <button class="button navbar-burger">
@@ -21,19 +22,19 @@
             </div>
           </div>
 
-          {{ navbarAnchor({ id: 'show-quick-i-modal', href: '#', title: 'Quick Start' }) }}
-          {{ navbarAnchor({ href: '/docs', title: 'Guides' }) }}
-          {{ navbarAnchor({ href: '/recipes', title: 'Recipes' }) }}
+          {{ navbarAnchor({ id: 'show-quick-i-modal', href: '#', title: '快速开始' }) }}
+          {{ navbarAnchor({ href: '/docs', title: '文档' }) }}
+          {{ navbarAnchor({ href: '/recipes', title: '技巧' }) }}
 
           {{-- Since we need to type in multiple lines, we used @mustache tag over curly braces --}}
           @mustache(navbarAnchor({
-            title: 'Community',
+            title: '社区',
             childs: [
               {
-                title: 'Official packages', href: '/packages'
+                title: '官方包', href: '/packages'
               },
               {
-                title: 'Screencasts', href: '/screencasts'
+                title: '截图', href: '/screencasts'
               },
               {
                 title: 'Twitter', href: 'https://twitter.com/adonisframework'
@@ -42,16 +43,16 @@
                 title: 'Github', href: 'https://github.com/adonisjs'
               },
               {
-                title: 'Forum', href: 'https://forum.adonisjs.com'
+                title: '论坛', href: 'https://forum.adonisjs.com'
               },
               {
-                title: 'Blog', href: 'https://adonisjs.svbtle.com'
+                title: '博客', href: 'https://adonisjs.svbtle.com'
               },
               {
                 title: 'Discord', href: 'https://discord.me/adonisjs'
               },
               {
-                title: 'Donate', href: 'https://www.patreon.com/adonisframework'
+                title: '捐赠', href: 'https://www.patreon.com/adonisframework'
               }
             ]
           }))
