@@ -3,19 +3,19 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_slim_structure">Slim structure</a></li>
-<li><a href="#_the_app_directory">The app directory</a></li>
-<li><a href="#_views">Views</a></li>
-<li><a href="#_static_assets">Static assets</a></li>
-<li><a href="#_config">Config</a></li>
-<li><a href="#_tests">Tests</a></li>
+<li><a href="#_精简版结构">精简版结构</a></li>
+<li><a href="#_应用程序目录">应用程序目录</a></li>
+<li><a href="#_视图">视图</a></li>
+<li><a href="#_静态资源">静态资源</a></li>
+<li><a href="#_配置">配置</a></li>
+<li><a href="#_测试">测试</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In this guide, we learn how AdonisJs apps are structured and how gracefully it scales as your project grows.</p>
+<p>在本指南中，我们将学习AdonisJs应用程序的结构以及它随着项目的发展如何优雅地扩展。</p>
 </div>
 <div class="paragraph">
-<p>The philosophy of AdonisJs is always to start lean and grow big on demand. The <code>adonis</code> command-line comes with a bunch of <strong>commands</strong> to create new directories/files whenever you need them.</p>
+<p>AdonisJs的理念始终是开始精益求精，并随需而变。 <code>adonis</code> 命令行带有一堆 <strong>命令</strong>，用于在需要时创建新的目录/文件。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -24,7 +24,7 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Run <code>adonis --help</code> to see list of available commands
+运行 <code>adonis --help</code> 来查看可用命令的列表
 </td>
 </tr>
 </table>
@@ -32,10 +32,10 @@ Run <code>adonis --help</code> to see list of available commands
 </div>
 </div>
 <div class="sect1">
-<h2 id="_slim_structure"><a class="anchor" href="#_slim_structure"></a><a class="link" href="#_slim_structure">Slim structure</a></h2>
+<h2 id="_精简版结构"><a class="anchor" href="#_精简版结构"></a><a class="link" href="#_精简版结构">精简版结构</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Slim structure is the bare minimum you need in order to work with AdonisJs.</p>
+<p>为了与AdonisJs合作，Slim结构是最基本的。</p>
 </div>
 <pre class="highlight line-numbers language-bash" data-line="2,5">
 <code>.
@@ -56,52 +56,52 @@ Run <code>adonis --help</code> to see list of available commands
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">File/Directory</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">文件/目录</th>
+<th class="tableblock halign-left valign-top">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ace</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The ace file bootstraps the command line tool for your project-specific commands. Running <code>node ace &lt;commandName&gt;</code> executes the command.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ace文件为您的项目特定命令引导命令行工具。运行 <code>node ace &lt;命令名&gt;</code> 执行该命令。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">package.json</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The standard Node.js packages file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准的Node.js包文件。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">public</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The public directory is used to store static assets like <strong>Css, Javascript files or images</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用于存放静态资源的公共文件夹，如 <strong>Css，Javascript文件或图片</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">server.js</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This file bootstraps the HTTP server. Running <code>node server.js</code> starts the HTTP server on the port defined inside the .env file.<br>
-Whereas in development it is recommended to use <code>adonis serve --dev</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">该文件用于启动HTTP服务器。运行 <code>node server.js</code> 会启动.env文件中定义的端口上的HTTP服务器。<br>
+而在开发中，建议使用 <code>adonis serve --dev</code> 。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start/app.js</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This file is required to register the providers, commands, and aliases. You can ignore this file for now especially if you are not familiar with providers.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">该文件用于注册提供者，命令和别名。您现在可以忽略此文件，特别是如果您不熟悉提供者。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start/kernel.js</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The HTTP Middleware are registered inside this file.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTP中间件注册在这个文件中。</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">start/routes.js</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This file is used to define HTTP routes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">该文件用于定义HTTP路由。</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_app_directory"><a class="anchor" href="#_the_app_directory"></a><a class="link" href="#_the_app_directory">The app directory</a></h2>
+<h2 id="_应用程序目录"><a class="anchor" href="#_应用程序目录"></a><a class="link" href="#_应用程序目录">应用程序目录</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>app</code> directory stores all of your application code such as <strong>Controllers</strong>, <strong>Models</strong>, <strong>Commands</strong>.</p>
+<p><code>app</code> 目录存储您的所有应用程序代码,例如 <strong>控制器</strong>, <strong>模型</strong>, <strong>命令</strong>。</p>
 </div>
 <div class="paragraph">
-<p>AdonisJs has the concept of autoloading the <code>app</code> directory. This means that instead of requiring files with the relative path, you can require files with a namespace. For example:</p>
+<p>AdonisJs具有自动加载 <code>app</code> 目录的概念。这意味着您可以不需要具有相对路径的文件，而是需要具有命名空间的文件。例如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -111,7 +111,7 @@ Whereas in development it is recommended to use <code>adonis serve --dev</code>.
 </div>
 </div>
 <div class="paragraph">
-<p>Normally you would require the above file as</p>
+<p>通常你会需要上面的文件</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -119,7 +119,7 @@ Whereas in development it is recommended to use <code>adonis serve --dev</code>.
 </div>
 </div>
 <div class="paragraph">
-<p>With autoloading in place, it can be imported as</p>
+<p>使用自动加载时，可以导入为</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -127,7 +127,7 @@ Whereas in development it is recommended to use <code>adonis serve --dev</code>.
 </div>
 </div>
 <div class="paragraph">
-<p>The benefit of the latter approach is that the <strong>namespace</strong> always remains same and you never have to deal with relative paths by typing <code>../</code>.</p>
+<p>后面一种方法的好处是，<strong>命名空间</strong> 始终保持相同，您不必通过输入 <code>../</code> 来处理相对路径。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -136,7 +136,7 @@ Whereas in development it is recommended to use <code>adonis serve --dev</code>.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The autoloading namespace is defined inside the <a href="https://github.com/adonisjs/adonis-slim-app/blob/master/package.json#L24" target="_blank" rel="noopener">package.json</a> file. You are free to define more/unique namespaces.
+自动加载命名空间是在 <a href="https://github.com/adonisjs/adonis-slim-app/blob/master/package.json#L24" target="_blank" rel="noopener">package.json</a> 文件中定义的。您可以自由定义更多/唯一的命名空间。
 </td>
 </tr>
 </table>
@@ -144,13 +144,13 @@ The autoloading namespace is defined inside the <a href="https://github.com/adon
 </div>
 </div>
 <div class="sect1">
-<h2 id="_views"><a class="anchor" href="#_views"></a><a class="link" href="#_views">Views</a></h2>
+<h2 id="_视图"><a class="anchor" href="#_视图"></a><a class="link" href="#_视图">视图</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The application views are stored inside <code>resources/views</code> directory. Each view file ends with <code>.edge</code> and uses <a href="http://edge.adonisjs.com/" target="_blank" rel="noopener">edge</a> as the templating engine.</p>
+<p>应用程序视图存储在 <code>resources/views</code> 目录中。每个视图文件以 <code>.edge</code> 结尾，并使用 <a href="http://edge.adonisjs.com/" target="_blank" rel="noopener">edge</a> 作为模板引擎。</p>
 </div>
 <div class="paragraph">
-<p>You can create new views using the <code>adonis make:view</code> command.</p>
+<p>您可以使用 <code>adonis make：view</code> 命令创建新的视图。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -158,7 +158,7 @@ The autoloading namespace is defined inside the <a href="https://github.com/adon
 </div>
 </div>
 <div class="paragraph">
-<p>For nested views running the following command</p>
+<p>对于嵌套视图运行以下命令</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -168,38 +168,39 @@ The autoloading namespace is defined inside the <a href="https://github.com/adon
 </div>
 </div>
 <div class="sect1">
-<h2 id="_static_assets"><a class="anchor" href="#_static_assets"></a><a class="link" href="#_static_assets">Static assets</a></h2>
+<h2 id="_静态资源"><a class="anchor" href="#_静态资源"></a><a class="link" href="#_静态资源">静态资源</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>public</code> directory in your app is dedicated to store all of the frontend related assets like <strong>css</strong>, <strong>images</strong> or <strong>javascript files</strong>.</p>
+<p>您应用中的 <code>public</code> 目录专门用于存储所有与前端相关的资源，如 <strong>css</strong>，<strong>图片</strong> 或 <strong>javascript文件</strong>。</p>
 </div>
 <div class="paragraph">
-<p>You access these files without adding <code>/public</code> to the URL. For example:</p>
+<p>您可以在不向URL添加 <code>/public</code> 的情况下访问这些文件。例如：</p>
 </div>
 <div class="paragraph">
-<p>The <code>public/style.css</code> file can be accessed by visiting <a href="http://127.0.0.1:3333/style.css">127.0.0.1:3333/style.css</a></p>
+<p><code>public/style.css</code> 文件可以通过 <a href="http://127.0.0.1:3333/style.css">127.0.0.1:3333/style.css</a> 来访问</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_config"><a class="anchor" href="#_config"></a><a class="link" href="#_config">Config</a></h2>
+<h2 id="_配置"><a class="anchor" href="#_配置"></a><a class="link" href="#_配置">配置</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To keep your applications away from configuration debt, AdonisJs gives you a dedicated directory <code>/config</code> to store all of the application configuration.</p>
+<p>为了让应用程序避免配置债务，AdonisJs为您提供专用目录 <code>/config</code> 来存储所有应用程序配置</p>
 </div>
 <div class="paragraph">
-<p>It is recommended to keep configuration at one place and make use of <strong>Environment</strong> variables for manging secrets. <a href="configuration-and-env">Learn more</a></p>
+<p>建议在一个地方进行配置，并使用 <strong>环境</strong> 变量来管理秘钥。
+<a href="configuration-and-env">了解更多</a></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_tests"><a class="anchor" href="#_tests"></a><a class="link" href="#_tests">Tests</a></h2>
+<h2 id="_测试"><a class="anchor" href="#_测试"></a><a class="link" href="#_测试">测试</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All of the application tests are stored inside in the <code>test</code> directory. The testing package is not included by default and hence you can install it as defined <a href="testing#_setup">here</a>.</p>
+<p>所有的应用程序测试都存储在 <code>test</code> 目录中。测试包默认不包含，因此您可以像 <a href="testing#_setup">这里</a>介绍的那样安装它。</p>
 </div>
 <div class="paragraph">
-<p>Once the package has been setup, you can run the following command(s).</p>
+<p>软件包安装完成后，您可以运行以下命令。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -207,7 +208,7 @@ The autoloading namespace is defined inside the <a href="https://github.com/adon
 </div>
 </div>
 <div class="paragraph">
-<p>And run tests as follows.</p>
+<p>并按如下方式运行测试。</p>
 </div>
 <div class="listingblock">
 <div class="content">

@@ -3,34 +3,34 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_basic_example">Basic example</a></li>
-<li><a href="#_route_methods_verbs">Route methods/verbs</a></li>
-<li><a href="#_route_parameters">Route parameters</a></li>
-<li><a href="#_routing_for_spa_s">Routing for SPA&#8217;s</a></li>
-<li><a href="#_binding_controllers">Binding controllers</a></li>
-<li><a href="#_route_middleware">Route middleware</a></li>
-<li><a href="#_named_routes">Named routes</a></li>
-<li><a href="#_route_formats">Route formats</a></li>
-<li><a href="#_route_resources">Route resources</a></li>
-<li><a href="#_routing_domains">Routing domains</a></li>
-<li><a href="#_route_groups">Route groups</a></li>
-<li><a href="#_route_renderer">Route renderer</a></li>
-<li><a href="#_extending_routes">Extending routes</a></li>
+<li><a href="#_基本例子">基本例子</a></li>
+<li><a href="#_路由方法_动词">路由方法/动词</a></li>
+<li><a href="#_路由参数">路由参数</a></li>
+<li><a href="#_spa的路由">SPA的路由</a></li>
+<li><a href="#_绑定控制器">绑定控制器</a></li>
+<li><a href="#_路由中间件">路由中间件</a></li>
+<li><a href="#_命名路线">命名路线</a></li>
+<li><a href="#_路线格式">路线格式</a></li>
+<li><a href="#_资源路由">资源路由</a></li>
+<li><a href="#_路由域名">路由域名</a></li>
+<li><a href="#_路由组">路由组</a></li>
+<li><a href="#_路由渲染器">路由渲染器</a></li>
+<li><a href="#_扩展路由">扩展路由</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>AdonisJs routing favors <strong>REST conventions</strong>, but still, give enough room to create and register custom routes. In this guide, we learn about creating routes, binding controller methods and different ways to organize them.</p>
+<p>AdonisJs路由热衷 <strong>REST约定</strong> ，但仍然有足够的空间来创建和注册自定义路由。在本指南中，我们学习如何创建路由，绑定控制器方法以及用不同的方式来组织它们。</p>
 </div>
 <div class="paragraph">
-<p>All of the application routes are registered inside <code>start/routes.js</code> file. Also, you are free to create multiple files for routes and just require them inside the <code>routes.js</code> file.</p>
+<p>所有的应用程序路径都在 <code>start/routes.js</code> 文件中注册。另外，你可以自由创建多个路由文件，只需要在 <code>routes.js</code> 文件中引用它们。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_basic_example"><a class="anchor" href="#_basic_example"></a><a class="link" href="#_basic_example">Basic example</a></h2>
+<h2 id="_基本例子"><a class="anchor" href="#_基本例子"></a><a class="link" href="#_基本例子">基本例子</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The most basic route requires a URL path and closure to be executed. The returned value from the closure is sent back as the response.</p>
+<p>最基本的路由需要执行URL路径和闭包。闭包的返回值作为响应发回。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -38,23 +38,23 @@
 </div>
 </div>
 <div class="paragraph">
-<p>After starting the server using <code>adonis serve --dev</code>, if you visit <a href="http://localhost:3333">localhost:3333</a>, you see the <strong>Hello world</strong> in the browser.</p>
+<p>使用`adonis serve --dev`启动服务器后，如果您访问 <a href="http://localhost:3333">localhost:3333</a>，您会在浏览器中看到 <strong>Hello world</strong> 。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_methods_verbs"><a class="anchor" href="#_route_methods_verbs"></a><a class="link" href="#_route_methods_verbs">Route methods/verbs</a></h2>
+<h2 id="_路由方法_动词"><a class="anchor" href="#_路由方法_动词"></a><a class="link" href="#_路由方法_动词">路由方法/动词</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Restful routes make use of different HTTP methods to indicate the type of request. For example: <code>POST</code> method is used to create a record and <code>GET</code> is used to fetch record(s).</p>
+<p>Restful路由使用不同的HTTP方法来指示请求的类型。例如： <code>POST</code> 方法用于创建记录， <code>GET</code> 用于获取记录。</p>
 </div>
 <div class="paragraph">
-<p>You can define routes for different HTTP methods using one of the following methods.</p>
+<p>您可以使用以下方法为不同的HTTP方法定义路由。</p>
 </div>
 <div class="sect3">
 <h4 id="_get"><a class="anchor" href="#_get"></a><a class="link" href="#_get">get</a></h4>
 <div class="paragraph">
-<p>Create a route with GET method.</p>
+<p>使用GET方法创建路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -66,7 +66,7 @@
 <div class="sect3">
 <h4 id="_post"><a class="anchor" href="#_post"></a><a class="link" href="#_post">post</a></h4>
 <div class="paragraph">
-<p>Create a route with POST method.</p>
+<p>使用POST方法创建路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -78,7 +78,7 @@
 <div class="sect3">
 <h4 id="_put_patch"><a class="anchor" href="#_put_patch"></a><a class="link" href="#_put_patch">put/patch</a></h4>
 <div class="paragraph">
-<p>The <code>PUT</code> and <code>PATCH</code> methods are used to update a resource.</p>
+<p><code>PUT</code> 和 <code>PATCH</code> 方法用于更新资源。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -93,7 +93,7 @@ Route.patch('/', async () =&gt; {
 <div class="sect3">
 <h4 id="_delete"><a class="anchor" href="#_delete"></a><a class="link" href="#_delete">delete</a></h4>
 <div class="paragraph">
-<p>The <code>DELETE</code> method indicates removing a resource.</p>
+<p><code>DELETE</code> 方法表示删除资源。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -105,7 +105,7 @@ Route.patch('/', async () =&gt; {
 <div class="sect3">
 <h4 id="_route"><a class="anchor" href="#_route"></a><a class="link" href="#_route">route</a></h4>
 <div class="paragraph">
-<p>Also, you can create routes that respond to multiple verbs using the <code>Route.route</code> method.</p>
+<p>另外，您可以使用 <code>Route.route</code> 方法创建响应多个动词的路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -118,10 +118,10 @@ Route.patch('/', async () =&gt; {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_parameters"><a class="anchor" href="#_route_parameters"></a><a class="link" href="#_route_parameters">Route parameters</a></h2>
+<h2 id="_路由参数"><a class="anchor" href="#_路由参数"></a><a class="link" href="#_路由参数">路由参数</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Creating routes with static paths are not quite helpful, and often you need a way to accept dynamic data as part of the URL, for example:</p>
+<p>使用静态路径创建路由并不是很有用，而且通常需要一种方法来接受动态数据作为URL的一部分，例如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -131,7 +131,7 @@ Route.patch('/', async () =&gt; {
 </div>
 </div>
 <div class="paragraph">
-<p>You would need a way to fetch the post id from the URL and render the appropriate post. The same is achieved by defining route parameters.</p>
+<p>您需要一种方法从URL中获取帖子ID并呈现相应的帖子。通过定义路由参数也是一样。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -142,12 +142,12 @@ Route.patch('/', async () =&gt; {
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>:id</code> is a route parameter which is passed as part of the <code>params</code> object. Also, you can make it optional by adding <code>?</code> to the parameter. For example:</p>
+<p><code>:id</code> 是作为 <code>params</code> 对象的一部分传递的路由参数。另外，你可以通过在参数中加入 <code>?</code> 使其成为可选的。例如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">Route.get('make/:drink?', async ({ params }) =&gt; {
-  // use Coffee as fallback when drink is not defined
+  // 当:drink未定义时，使用Coffee作为默认值
   const drink = params.drink || 'Coffee'
 
   return `Will make ${drink} for you`
@@ -157,13 +157,13 @@ Route.patch('/', async () =&gt; {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_routing_for_spa_s"><a class="anchor" href="#_routing_for_spa_s"></a><a class="link" href="#_routing_for_spa_s">Routing for SPA&#8217;s</a></h2>
+<h2 id="_spa的路由"><a class="anchor" href="#_spa的路由"></a><a class="link" href="#_spa的路由">SPA的路由</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quite often you find yourself creating a SPA ( single page application ), where you want to render a single view from the server and handle routing on front-end using your favorite front end framework.</p>
+<p>通常你会发现自己创建了一个SPA（单页面应用程序），在那里你想要从服务器渲染一个单一的视图，并使用你最喜欢的前端框架处理前端的路由。</p>
 </div>
 <div class="paragraph">
-<p>This can be done by defining a wildcard route.</p>
+<p>这可以通过定义通配符路由来完成。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -171,29 +171,29 @@ Route.patch('/', async () =&gt; {
 </div>
 </div>
 <div class="paragraph">
-<p>If you have any other specific routes, they should be defined before the wildcard route. For example:</p>
+<p>如果您有任何其他特定路由，则应在通配符路由之前对其进行定义。例如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">Route.get('/api/v1/users', 'UserController.index')
 
-// wildcard route
+// 通配符路由
 Route.any('*', ({ view }) =&gt; view.render('main'))</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_binding_controllers"><a class="anchor" href="#_binding_controllers"></a><a class="link" href="#_binding_controllers">Binding controllers</a></h2>
+<h2 id="_绑定控制器"><a class="anchor" href="#_绑定控制器"></a><a class="link" href="#_绑定控制器">绑定控制器</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Defining closures as the route actions are not scalable, since writing all the code inside a single file is never desired and neither practical.</p>
+<p>将所有代码写入单个文件不太合理，也不实用，因为将匿名函数定义为路由动作扩展性较差。</p>
 </div>
 <div class="paragraph">
-<p>AdonisJs being an MVC framework offers a nice abstractions layer called <strong>Controllers</strong> to keep all the request handling logic inside custom ES6 classes.</p>
+<p>AdonisJs是一个MVC框架，它提供了一个名为 <strong>Controllers</strong> 的抽象层，用于将所有请求处理逻辑放在一个自定义ES6类中。</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s create a controller using the <code>make:controller</code> command.</p>
+<p>我们使用 <code>make:controller</code> 命令创建一个控制器。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -207,7 +207,7 @@ Route.any('*', ({ view }) =&gt; view.render('main'))</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The next step is to bind the controller method to the route. It is defined as a <code>dot (.)</code> separated string.</p>
+<p>下一步是将控制器方法绑定到路由。它被定义为一个 <code>点（.）</code> 分隔的字符串。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -215,7 +215,7 @@ Route.any('*', ({ view }) =&gt; view.render('main'))</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Finally, we need to create the <code>index</code> method on the controller class.</p>
+<p>最后，我们需要在控制器类上创建 <code>index</code> 方法。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -233,10 +233,10 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_middleware"><a class="anchor" href="#_route_middleware"></a><a class="link" href="#_route_middleware">Route middleware</a></h2>
+<h2 id="_路由中间件"><a class="anchor" href="#_路由中间件"></a><a class="link" href="#_路由中间件">路由中间件</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can apply selected middleware to routes by calling the <code>middleware</code> method.</p>
+<p>您可以通过调用“middleware”方法将选定的中间件应用于路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -246,7 +246,7 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>middleware</code> method accepts an array of named middleware, which is defined inside <code>start/kernel.js</code> file.</p>
+<p><code>middleware</code> 方法接受一个已命名的中间件数组，它在 <code>start/kernel.js</code> 文件中定义。</p>
 </div>
 <div class="listingblock">
 <div class="title">start/kernel.js</div>
@@ -257,15 +257,15 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Click <a href="middleware">here</a> to learn more about middleware.</p>
+<p>点击 <a href="middleware">这里</a> 了解更多关于中间件的信息。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_named_routes"><a class="anchor" href="#_named_routes"></a><a class="link" href="#_named_routes">Named routes</a></h2>
+<h2 id="_命名路线"><a class="anchor" href="#_命名路线"></a><a class="link" href="#_命名路线">命名路线</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Routes are defined inside <code>start/routes.js</code> file but referenced everywhere inside your application. For example: Defining a form action to submit to a particular URL.</p>
+<p>路径是在 <code>start/routes.js</code> 文件中定义的，但在应用程序中的任何地方都可以引用。例如：定义表单操作以提交给特定的URL。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -273,7 +273,7 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Inside the template</p>
+<p>在模板中</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -282,10 +282,10 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now if you change your route path from <code>/users</code> to something else, you have to remember to come back and change it inside the template as-well.</p>
+<p>现在，如果您将路由路径从 <code>/users</code> 更改为其他路径，则必须记得回来并在模板内改变它。</p>
 </div>
 <div class="paragraph">
-<p>To overcome this problem, you can name your routes uniquely and reference them in other part of the program.</p>
+<p>为了克服这个问题，你可以唯一地命名你的路由并在程序的其他部分引用它们。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -295,7 +295,7 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>as</code> method gives your route a name. Now inside your template, you can reference it using a view global.</p>
+<p><code>as</code> 方法给你的路线命名。现在在您的模板中，您可以使用视图全局引用它。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -306,13 +306,13 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_formats"><a class="anchor" href="#_route_formats"></a><a class="link" href="#_route_formats">Route formats</a></h2>
+<h2 id="_路线格式"><a class="anchor" href="#_路线格式"></a><a class="link" href="#_路线格式">路线格式</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Route formats open up a new way for <a href="https://en.wikipedia.org/wiki/Content_negotiation" target="_blank" rel="noopener">Content negotiation</a>, where you can accept the response format as part of the URL.</p>
+<p>路由格式为 <a href="https://en.wikipedia.org/wiki/Content_negotiation" target="_blank" rel="noopener">内容协商</a> 打开了一条新途径，您可以在其中定义接受响应格式作为URL的一部分。</p>
 </div>
 <div class="paragraph">
-<p>Route format is a contract between the client and the server on which type of response to be created. For example:</p>
+<p>路径格式是客户端和服务器之间的一种契约，其中要创建的响应类型。例如：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -331,22 +331,22 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now the <code>users</code> endpoint can respond in multiple formats, based upon the URL.</p>
+<p>现在， <code>users</code> 可以根据URL以多种格式进行响应。</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">/users.json</dt>
 <dd>
-<p>Return an array of users in JSON.</p>
+<p>以JSON形式返回用户数组。</p>
 </dd>
 <dt class="hdlist1">/users</dt>
 <dd>
-<p>Render the view and returns HTML</p>
+<p>渲染视图并返回HTML</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Also, you can disable the default URL and always force the client to define the format.</p>
+<p>此外，您可以禁用默认URL并始终强制客户端定义格式。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -366,15 +366,15 @@ module.exports = PostController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Passing <code>true</code> as the second parameter makes sure that the client defines one of the expected formats. Otherwise, a 404 is thrown.</p>
+<p>传递 <code>true</code> 作为第二个参数可以确保客户端定义了一种预期的格式。否则，会抛出404错误。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_resources"><a class="anchor" href="#_route_resources"></a><a class="link" href="#_route_resources">Route resources</a></h2>
+<h2 id="_资源路由"><a class="anchor" href="#_资源路由"></a><a class="link" href="#_资源路由">资源路由</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If you like building web apps around REST conventions then <strong>route resources</strong> helps you in defining conventional routes by writing less code.</p>
+<p>如果您喜欢围绕REST约定构建Web应用程序，那么 <strong>资源路由</strong> 可以通过编写更少的代码来帮助您定义传统路由。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -383,7 +383,7 @@ module.exports = PostController</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is required to bind a <strong>Controller</strong> to the resource. Binding a closure throws an exception.
+需要将 <strong>Controller</strong> 绑定到资源。绑定一个闭包会抛出一个异常。
 </td>
 </tr>
 </table>
@@ -394,7 +394,7 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>Route.resource</code> method under the hood creates a total of 7 routes</p>
+<p>默认的 <code>Route.resource</code> 方法会创建7条路由</p>
 </div>
 <table class="tableblock frame-all grid-all spread resource-table">
 <colgroup>
@@ -406,50 +406,50 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Url</th>
-<th class="tableblock halign-left valign-top">Verb</th>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Controller Method</th>
+<th class="tableblock halign-left valign-top">动词</th>
+<th class="tableblock halign-left valign-top">名称</th>
+<th class="tableblock halign-left valign-top">控制器方法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users <span class="description">Show a list of all the users</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users <span class="description">显示所有用户</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.index</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.index</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users/create <span class="description">Render a form to be used for creating a new user</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users/create <span class="description">渲染一个用于创建用户的表单</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.create</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.create</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users <span class="description">Create/save a new user.</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users <span class="description">新建/保存一个新用户</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.store</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.store</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id <span class="description">Display a single user</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id <span class="description">显示一个用户</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.show</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.show</code>.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id/edit <span class="description">Render a form to update an existing user.</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id/edit <span class="description">渲染一个用于更新用户的表单</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.edit</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.edit</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id <span class="description">Update user details.</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id <span class="description">更新用户的详情。</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT or PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.update</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.update</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id <span class="description">Delete a user with id.</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">users/:id <span class="description">通过ID删除一个用户</span></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">users.destroy</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>UsersController.destroy</code></p></td>
@@ -457,7 +457,7 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </tbody>
 </table>
 <div class="paragraph">
-<p>Nested resources can be created with <code>dot (.)</code> notation.</p>
+<p>嵌套资源可以使用 <code>点（.）</code> 表示法创建。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -465,14 +465,14 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_filtering_resources"><a class="anchor" href="#_filtering_resources"></a><a class="link" href="#_filtering_resources">Filtering resources</a></h3>
+<h3 id="_过滤资源"><a class="anchor" href="#_过滤资源"></a><a class="link" href="#_过滤资源">过滤资源</a></h3>
 <div class="paragraph">
-<p>You can limit the number of routes a resource should create by chaining handful of methods.</p>
+<p>您可以通过链接少数方法来限制资源应该创建的路由数量。</p>
 </div>
 <div class="sect3">
 <h4 id="_apionly"><a class="anchor" href="#_apionly"></a><a class="link" href="#_apionly">apiOnly</a></h4>
 <div class="paragraph">
-<p>Limit the routes to only 5 by removing <code>users/create</code> and <code>users/:id/edit</code>. Since when writing an API server, you may want to render the forms within the API consumer (e.g., a mobile app, frontend web framework, etc.).</p>
+<p>通过删除 <code>users/create</code> and <code>users/:id/edit</code> 路由来限制仅创建5条路由。由于在编写API服务器时，您可能想要在API客户端内呈现表单（例如，移动应用程序，前端Web框架等）。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -483,9 +483,9 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_only_names"><a class="anchor" href="#_only_names"></a><a class="link" href="#_only_names">only([names])</a></h4>
+<h4 id="_only_名称"><a class="anchor" href="#_only_名称"></a><a class="link" href="#_only_名称">only([名称])</a></h4>
 <div class="paragraph">
-<p>Remove all other routes but not the ones passed to the <code>only</code> method.</p>
+<p>删除所有其他路由，仅保留传递给 <code>only</code> 方法的路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -496,9 +496,9 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_except_names"><a class="anchor" href="#_except_names"></a><a class="link" href="#_except_names">except([names])</a></h4>
+<h4 id="_except_名称"><a class="anchor" href="#_except_名称"></a><a class="link" href="#_except_名称">except([名称])</a></h4>
 <div class="paragraph">
-<p>Remove route for names passed to the <code>except</code> method.</p>
+<p>删除传递给 <code>except</code> 方法的名称的路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -510,9 +510,9 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_resource_middleware"><a class="anchor" href="#_resource_middleware"></a><a class="link" href="#_resource_middleware">Resource Middleware</a></h3>
+<h3 id="_资源中间件"><a class="anchor" href="#_资源中间件"></a><a class="link" href="#_资源中间件">资源中间件</a></h3>
 <div class="paragraph">
-<p>You can attach middleware to the resource, just like you would do to a single route.</p>
+<p>您可以像您对单个路由所做的一样将中间件附加到资源。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -522,7 +522,7 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="paragraph">
-<p>Since attaching auth middleware to all the routes is not always desired, you can customize the behavior by passing a map of values.</p>
+<p>由于将auth中间件附加到所有路由并不总是需要，因此可以通过传递值映射来自定义行为。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -534,13 +534,13 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="paragraph">
-<p>Here we have defined the <code>auth</code> middleware on <strong>store</strong>, <strong>update</strong> and <strong>destroy</strong> controller methods.</p>
+<p>这里我们定义了 <strong>store</strong>，<strong>update</strong> 和 <strong>destroy</strong> 控制器方法中的 <code>auth</code> 中间件。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_resource_formats"><a class="anchor" href="#_resource_formats"></a><a class="link" href="#_resource_formats">Resource Formats</a></h3>
+<h3 id="_资源格式"><a class="anchor" href="#_资源格式"></a><a class="link" href="#_资源格式">资源格式</a></h3>
 <div class="paragraph">
-<p>Also, you can define the formats for all the resourceful routes, just like the way you do for a single route or a group of routes.</p>
+<p>此外，您可以为所有的资源路由定义格式，就像为单个路线或一组路线做的那样。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -553,10 +553,10 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_routing_domains"><a class="anchor" href="#_routing_domains"></a><a class="link" href="#_routing_domains">Routing domains</a></h2>
+<h2 id="_路由域名"><a class="anchor" href="#_路由域名"></a><a class="link" href="#_路由域名">路由域名</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AdonisJs makes it super easy to serve multiple domains within a single codebase. The domains can be static endpoints like <code>blog.adonisjs.com</code> or dynamic endpoints like <code>:user.adonisjs.com</code>.</p>
+<p>AdonisJs使得在单个代码库中为多个域提供服务变得非常简单。这些域可以是像 <code>blog.adonisjs.com</code> 这样的静态端点或像 <code>:user.adonisjs.com</code> 这样的动态端点。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -565,7 +565,7 @@ It is required to bind a <strong>Controller</strong> to the resource. Binding a 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can define the domain on a single route as well, but it is a good idea to group domain specific routes.
+您也可以在单个路由上定义域，但将域专用路由分组是个好主意。
 </td>
 </tr>
 </table>
@@ -582,18 +582,18 @@ You can define the domain on a single route as well, but it is a good idea to gr
 </div>
 </div>
 <div class="paragraph">
-<p>Now if you visit <code>virk.myapp.com</code>, You see the above route is executed.</p>
+<p>现在，如果你访问 <code>virk.myapp.com</code> ，你会看到上面的路由被执行。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_groups"><a class="anchor" href="#_route_groups"></a><a class="link" href="#_route_groups">Route groups</a></h2>
+<h2 id="_路由组"><a class="anchor" href="#_路由组"></a><a class="link" href="#_路由组">路由组</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quite often your application routes share common logic/configuration around them. So instead of re-defining the configuration on each route, it&#8217;s better to group them. For example:</p>
+<p>很多时候，你的应用程序路线共享共同的逻辑/配置。因此，不要在每条路线上重新定义配置，最好将它们分组。例如：</p>
 </div>
 <div class="paragraph">
-<p>Not desired</p>
+<p>不需要</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -602,7 +602,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Instead, we can make use of the route&#8217;s group here.</p>
+<p>相反，我们可以在这里使用路线的组。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -615,12 +615,12 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Just like the <code>prefix</code> method, you can call the following methods on a group of routes.</p>
+<p>就像 <code>prefix</code> 方法一样，您可以在一组路由上调用以下方法。</p>
 </div>
 <div class="sect3">
-<h4 id="_middleware"><a class="anchor" href="#_middleware"></a><a class="link" href="#_middleware">middleware</a></h4>
+<h4 id="_中间件"><a class="anchor" href="#_中间件"></a><a class="link" href="#_中间件">中间件</a></h4>
 <div class="paragraph">
-<p>Define middleware on a group of routes. All group middleware are executed before the middleware defined on a single route.</p>
+<p>在一组路由上定义中间件。所有组中间件都是在单个路由上定义的中间件之前执行的。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -632,9 +632,9 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_namespace"><a class="anchor" href="#_namespace"></a><a class="link" href="#_namespace">namespace</a></h4>
+<h4 id="_命名空间"><a class="anchor" href="#_命名空间"></a><a class="link" href="#_命名空间">命名空间</a></h4>
 <div class="paragraph">
-<p>Often we have multiple controllers grouped inside the same folder. With the <code>namespace</code> method you can specify the folder on the group. For example with the following folder structure:</p>
+<p>通常我们有多个控制器分组在同一个文件夹内。通过 <code>namespace</code> 方法，您可以指定组中的文件夹。例如，使用以下文件夹结构：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -648,7 +648,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Normally you would define the resource as follows:</p>
+<p>通常你会定义资源如下：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -661,7 +661,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Using the <code>namespace</code> method you can simplify this group to the this:</p>
+<p>使用 <code>namespace</code> 方法，你可以简化这个组：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -678,7 +678,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 <div class="sect3">
 <h4 id="_domain"><a class="anchor" href="#_domain"></a><a class="link" href="#_domain">domain</a></h4>
 <div class="paragraph">
-<p>Specify routes on a group of routes.</p>
+<p>指定一组路由上的路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -692,7 +692,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 <div class="sect3">
 <h4 id="_formats"><a class="anchor" href="#_formats"></a><a class="link" href="#_formats">formats</a></h4>
 <div class="paragraph">
-<p>Define formats on a group of routes.</p>
+<p>定义一组路由上的格式。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -706,13 +706,13 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_route_renderer"><a class="anchor" href="#_route_renderer"></a><a class="link" href="#_route_renderer">Route renderer</a></h2>
+<h2 id="_路由渲染器"><a class="anchor" href="#_路由渲染器"></a><a class="link" href="#_路由渲染器">路由渲染器</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Route renderer is a one liner to render a view without creating a controller method or binding a closure.</p>
+<p>路由渲染器可以直接渲染视图而不需要创建控制器方法或绑定闭包。</p>
 </div>
 <div class="paragraph">
-<p>Instead of following</p>
+<p>为了取代下面的代码</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -722,7 +722,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We can write</p>
+<p>我们可以这样写</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -732,10 +732,10 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extending_routes"><a class="anchor" href="#_extending_routes"></a><a class="link" href="#_extending_routes">Extending routes</a></h2>
+<h2 id="_扩展路由"><a class="anchor" href="#_扩展路由"></a><a class="link" href="#_扩展路由">扩展路由</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AdonisJs makes it possible to extend routes by adding your own methods to it known as <strong>macros</strong>.</p>
+<p>AdonisJs可以通过将自定义的方法添加到 <strong>macros</strong> 来扩展路由。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -744,7 +744,7 @@ Route.post('api/v1/users', 'UserController.store')</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Since the code to extend the routes needs to be executed once, you can make use of providers or ignitor hooks. Make sure to read <a href="">how to extend</a> guide before continuing.
+由于扩展路由的代码需要执行一次，因此可以使用提供程序或触发器挂钩。请务必在继续之前阅读 <a href="">如何扩展</a>。
 </td>
 </tr>
 </table>
@@ -754,7 +754,7 @@ Since the code to extend the routes needs to be executed once, you can make use 
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const Route = use('Route')
 const Server = use('Server')
 
-// middleware function
+// 中间件函数
 async function bindMiddleware (ctx, next, [model, identifier, key]) {
   const identifierValue = ctx.params[identifier]
 
@@ -765,10 +765,10 @@ async function bindMiddleware (ctx, next, [model, identifier, key]) {
   await next()
 }
 
-// Pre register middleware with a name
+// 使用名字预先注册中间件
 Server.registerNamed({ bm: bindMiddleware })
 
-// Add macro
+// 添加宏
 Route.Route.macro('bind', function (model, identifier, key) {
   this.middleware(`bm:${model},${identifier},${key}`)
   return this
@@ -776,7 +776,7 @@ Route.Route.macro('bind', function (model, identifier, key) {
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>bind</code> method can be used as follows.</p>
+<p><code>bind</code> 方法可以如下使用。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -788,10 +788,10 @@ Route.Route.macro('bind', function (model, identifier, key) {
 </div>
 </div>
 <div class="paragraph">
-<p>Here we added the <code>bind</code> method to the <a href="https://github.com/adonisjs/adonis-framework/blob/develop/src/Route/index.js">Route class</a> prototype. This method internally adds a middleware to the route, which fetches a record from the database, using a model.</p>
+<p>在这里，我们将`bind`方法添加到 <a href="https://github.com/adonisjs/adonis-framework/blob/develop/src/Route/index.js">Route 类</a> 原型。 此方法在内部向路由添加中间件，该中间件使用模型从数据库中提取记录。</p>
 </div>
 <div class="paragraph">
-<p>Also you can add macros to the following classes.</p>
+<p>您也可以将宏添加到以下类中。</p>
 </div>
 <div class="olist ol-shrinked">
 <ol class="ol-shrinked">

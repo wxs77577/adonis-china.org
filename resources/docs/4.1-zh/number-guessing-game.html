@@ -3,16 +3,16 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_game_story">Game story</a></li>
-<li><a href="#_setup">Setup</a></li>
-<li><a href="#_routing">Routing</a></li>
-<li><a href="#_http_controller">Http controller</a></li>
-<li><a href="#_views">Views</a></li>
-<li><a href="#_next_steps">Next Steps</a></li>
+<li><a href="#_游戏故事">游戏故事</a></li>
+<li><a href="#_设置">设置</a></li>
+<li><a href="#_路由">路由</a></li>
+<li><a href="#_http控制器">Http控制器</a></li>
+<li><a href="#_视图">视图</a></li>
+<li><a href="#_下一步">下一步</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In this guide, we create a simple number guessing game as a way to learn more about the framework. By the end of this guide, you will know how to make use of <strong>views</strong>, <strong>create new routes</strong> and <strong>bind controllers</strong> to them.</p>
+<p>在本指南中，我们通过创建一个简单的猜数字游戏来了解该框架。在本指南结束时，您将知道如何使用 <strong>视图</strong>，<strong>创建新路由</strong> 和 <strong>绑定控制器</strong>。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -21,7 +21,7 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-You can see the final working version on <a href="https://adonis-number-guessing-game.glitch.me/?number=5" target="_blank" rel="noopener">glitch</a>. Also, you can checkout the code using the following remix button.<br>
+您可以在 <a href="https://adonis-number-guessing-game.glitch.me/?number=5" target="_blank" rel="noopener">glitch</a> 上看到最终的工作版本。 此外，您可以通过下面的按钮来检出代码。<br>
 <a href="https://glitch.com/edit/#!/remix/adonis-number-guessing-game" target="_blank" rel="noopener"><span class="image"><img src="https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg" alt="2703baf2 b643 4da7 ab91 7ee2a2d00b5b%2Fremix button"></span></a>
 </td>
 </tr>
@@ -30,21 +30,21 @@ You can see the final working version on <a href="https://adonis-number-guessing
 </div>
 </div>
 <div class="sect1">
-<h2 id="_game_story"><a class="anchor" href="#_game_story"></a><a class="link" href="#_game_story">Game story</a></h2>
+<h2 id="_游戏故事"><a class="anchor" href="#_游戏故事"></a><a class="link" href="#_游戏故事">游戏故事</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The number guessing takes input from the user and matches it against a random number. If the number matches, it is called a match, otherwise it is a pass.</p>
+<p>数字猜测需要用户输入，并将其与一个随机数进行匹配。如果号码匹配，则称为匹配，否则为不通过。</p>
 </div>
 <div class="paragraph">
-<p>To keep it simple, we accept the user guessed number as the query string in the URL.</p>
+<p>为了简单起见，我们接受URL中的查询字符串作为用户猜测的号码。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setup"><a class="anchor" href="#_setup"></a><a class="link" href="#_setup">Setup</a></h2>
+<h2 id="_设置"><a class="anchor" href="#_设置"></a><a class="link" href="#_设置">设置</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s create a new project using <code>adonis</code> command. We create a slim project since we do not need a database or models for this app.</p>
+<p>我们使用 <code>adonis</code> 命令创建一个新项目。我们创建一个精简版的项目，因为我们不需要这个应用程序的数据库或模型。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -52,52 +52,52 @@ You can see the final working version on <a href="https://adonis-number-guessing
 </div>
 </div>
 <div class="paragraph">
-<p>Now, <code>cd</code> into the created directory and make sure you can run the application using <code>adonis serve</code> command.</p>
+<p>现在，<code>cd</code> 进入创建的目录中，并确保可以使用 <code>adonis serve</code> 命令运行该应用程序。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_routing"><a class="anchor" href="#_routing"></a><a class="link" href="#_routing">Routing</a></h2>
+<h2 id="_路由"><a class="anchor" href="#_路由"></a><a class="link" href="#_路由">路由</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s start by removing everything from the <code>start/routes.js</code> file and paste the following code inside it.</p>
+<p>我们先删除 <code>start/routes.js</code> 文件中的所有内容，并将下面的代码粘贴到其中。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const Route = use('Route')
 
 Route.get('/', ({ request }) =&gt; {
-  /** get number from the url query string */
+  /** 从URL查询字符串获取数字 */
   const guessedNumber = Number(request.input('number'))
 
-  /** if number is not specified, let the user know about it */
+  /** 如果没有指定号码，提醒用户 */
   if (!guessedNumber) {
-    return 'Please specify a number by passing ?number=&lt;num&gt; to the url'
+    return '请通过在URL后加 ?number=&lt;数字&gt; 的方式指定一个数字'
   }
 
-  /** generate a random number */
+  /** 生成一个随机数 */
   const randomNumber = Math.floor(Math.random() * 20) + 1
 
-  /** let the user know about the match */
+  /** 让用户知道匹配结果 */
   return randomNumber === guessedNumber
-  ? 'Matched'
-  : `Match failed. The actual number is ${randomNumber}`
+  ? '匹配'
+  : `匹配失败。实际的数字是 ${randomNumber}`
 })</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now if we visit <a href="http://127.0.0.1:3333?number=5">127.0.0.1:3333?number=5</a> and keep on changing the <code>number</code> between 1-20, we see <strong>Matched</strong> or the <strong>Match failed</strong> statement.</p>
+<p>现在，如果我们访问 <a href="http://127.0.0.1:3333?number=5">127.0.0.1:3333?number=5</a> 并继续在1-20之间更改 <code>number</code>，我们会看到 <strong>匹配</strong> 或 <strong>匹配失败</strong> 的字样。</p>
 </div>
 <div class="paragraph">
-<p>The logic of number guessing game remains the same, but we start extracting this code into a controller and also create a view for it.</p>
+<p>数字猜测游戏的逻辑保持不变，但我们开始将此代码抽取到控制器中，并为其创建一个视图。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_http_controller"><a class="anchor" href="#_http_controller"></a><a class="link" href="#_http_controller">Http controller</a></h2>
+<h2 id="_http控制器"><a class="anchor" href="#_http控制器"></a><a class="link" href="#_http控制器">Http控制器</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s create a new controller by running the following command.</p>
+<p>我们通过运行以下命令创建一个新的控制器。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -111,7 +111,7 @@ Route.get('/', ({ request }) =&gt; {
 </div>
 </div>
 <div class="paragraph">
-<p>Now open the <code>GameController.js</code> file and paste the following code into it.</p>
+<p>现在打开 <code>GameController.js</code> 文件并将以下代码粘贴到其中。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -120,21 +120,21 @@ Route.get('/', ({ request }) =&gt; {
 class GameController {
 
   render ({ request }) {
-    /** get number from the url query string */
+    /** 从URL查询字符串获取数字 */
     const guessedNumber = Number(request.input('number'))
 
-    /** if number is not specified, let the user know about it */
+    /** 如果没有指定号码，提醒用户 */
     if (!guessedNumber) {
-      return 'Please specify a number by passing ?number=&lt;num&gt; to the url'
+      return '请通过在URL后加 ?number=&lt;数字&gt; 的方式指定一个数字'
     }
 
-    /** generate a random number */
+    /** 生成一个随机数 */
     const randomNumber = Math.floor(Math.random() * 20) + 1
 
-    /** let the user know about the match */
+    /** 让用户知道匹配结果 */
     return randomNumber === guessedNumber
-    ? 'Matched'
-    : `Match failed. The actual number is ${randomNumber}`
+    ? '匹配'
+    : `匹配失败。实际的数字是 ${randomNumber}`
   }
 }
 
@@ -142,7 +142,7 @@ module.exports = GameController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>All we have done is moved the code from the route closure to the controller file. Now, we can remove all the code from <code>start/routes.js</code> file and instead bind controller to it.</p>
+<p>我们所做的所有事情都将代码从路由闭包移动到控制器文件。现在，我们可以从 <code>start/routes.js</code> 文件中删除所有代码，并将控制器绑定到它上面。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -150,20 +150,20 @@ module.exports = GameController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now refresh the page, and the game works as expected.</p>
+<p>现在刷新页面，游戏应该按预期工作。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_views"><a class="anchor" href="#_views"></a><a class="link" href="#_views">Views</a></h2>
+<h2 id="_视图"><a class="anchor" href="#_视图"></a><a class="link" href="#_视图">视图</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AdonisJs makes use of <a href="http://edge.adonisjs.com/" target="_blank" rel="noopener">edge.js</a> as the templating engine to power views. Let&#8217;s learn how to register the view provider and render it from the controller method.</p>
+<p>AdonisJs使用 <a href="http://edge.adonisjs.com/" target="_blank" rel="noopener">edge.js</a> 作为模板引擎来支持视图。现在我们学习如何注册视图提供者并从控制器方法中渲染它。</p>
 </div>
 <div class="sect2">
-<h3 id="_setup_2"><a class="anchor" href="#_setup_2"></a><a class="link" href="#_setup_2">Setup</a></h3>
+<h3 id="_设置_2"><a class="anchor" href="#_设置_2"></a><a class="link" href="#_设置_2">设置</a></h3>
 <div class="paragraph">
-<p>All of the providers are registered inside <code>start/app.js</code> file. So will the <strong>ViewProvider</strong>.</p>
+<p>所有提供者都在 <code>start/app.js</code> 文件中注册。现在来注册 <strong>ViewProvider</strong>。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -173,7 +173,7 @@ module.exports = GameController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Once the provider has been registered, you can access the <code>view</code> instance inside your controller methods as follows.</p>
+<p>一旦提供者被注册，你可以按照如下方式访问控制器方法中的 <code>view</code> 实例。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -182,13 +182,13 @@ module.exports = GameController</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now, all we need to do is, create the <code>game.edge</code> template file and write the logic inside it.</p>
+<p>现在，我们需要做的就是创建 <code>game.edge</code> 模板文件并在其中写入逻辑。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_creating_template_file"><a class="anchor" href="#_creating_template_file"></a><a class="link" href="#_creating_template_file">Creating template file</a></h3>
+<h3 id="_创建模板文件"><a class="anchor" href="#_创建模板文件"></a><a class="link" href="#_创建模板文件">创建模板文件</a></h3>
 <div class="paragraph">
-<p>Just like the controller, we can use the <code>make:view</code> command to create a new view for us.</p>
+<p>就像控制器一样，我们可以使用 <code>make:view</code> 命令为我们创建一个新的视图。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -203,9 +203,9 @@ module.exports = GameController</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_extracting_logic_from_controller"><a class="anchor" href="#_extracting_logic_from_controller"></a><a class="link" href="#_extracting_logic_from_controller">Extracting logic from controller</a></h3>
+<h3 id="_从控制器提取逻辑"><a class="anchor" href="#_从控制器提取逻辑"></a><a class="link" href="#_从控制器提取逻辑">从控制器提取逻辑</a></h3>
 <div class="paragraph">
-<p>Let&#8217;s remove all the logic from the controller method and instead render a view with required data.</p>
+<p>让我们删除控制器方法中的所有逻辑，使用所需数据渲染视图。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -217,7 +217,7 @@ class GameController {
     const guessedNumber = Number(request.input('number'))
     const randomNumber = Math.floor(Math.random() * 20) + 1
 
-    /** rendering view */
+    /** 渲染视图 */
     return view.render('game', { guessedNumber, randomNumber })
   }
 }
@@ -229,16 +229,16 @@ module.exports = GameController</code></pre>
 <div class="title">resources/views/game.edge</div>
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-edge" data-lang="edge">@if(!guessedNumber)
-  &lt;p&gt; Please specify a number by passing &lt;code&gt;?number&lt;/code&gt; to the url &lt;/p&gt;
+  &lt;p&gt; 请在URL后加上 &lt;code&gt;?number&lt;/code&gt; 来指定一个数字&lt;/p&gt;
 @elseif(guessedNumber === randomNumber)
-  &lt;h2&gt; Matched &lt;/h2&gt;
+  &lt;h2&gt; 匹配 &lt;/h2&gt;
 @else
-  &lt;h2&gt;Match failed. The actual number is {{ randomNumber }}&lt;/h2&gt;
+  &lt;h2&gt;匹配失败。实际的数字是 {{ randomNumber }}&lt;/h2&gt;
 @endif</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>As you can see, Edge makes it so simple to write logic in the template files. We are easily able to output the statement we want.</p>
+<p>正如您所看到的，Edge使得在模板文件中编写逻辑非常简单。 我们很容易输出我们想要的语句。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -247,7 +247,7 @@ module.exports = GameController</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you have any questions or concerns, please join us on <a href="https://forum.adonisjs.com/c/help/view" target="_blank" rel="noopener">discourse</a> to be a part of our small and helpful community.
+如果您有任何问题或疑虑，请加入我们的<a href="https://forum.adonisjs.com/c/help/view" target="_blank" rel="noopener">discourse</a> - 成为我们小而乐于助人的社区的一部分。
 </td>
 </tr>
 </table>
@@ -256,21 +256,21 @@ If you have any questions or concerns, please join us on <a href="https://forum.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a><a class="link" href="#_next_steps">Next Steps</a></h2>
+<h2 id="_下一步"><a class="anchor" href="#_下一步"></a><a class="link" href="#_下一步">下一步</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tutorial was the easiest attempt to make use of different pieces and build a simple application in AdonisJs. Moving forward consider learning more about the following topics.</p>
+<p>本教程是使用AdonisJs中不同部分并构建简单应用程序的最简单尝试。 考虑了解以下主题来了解更多。</p>
 </div>
 <div class="olist ol-shrinked">
 <ol class="ol-shrinked">
 <li>
-<p><a href="routing">Routing</a></p>
+<p><a href="routing">路由</a></p>
 </li>
 <li>
-<p><a href="database">Database</a></p>
+<p><a href="database">数据库</a></p>
 </li>
 <li>
-<p>and <a href="authentication">Authentication</a></p>
+<p>和 <a href="authentication">认证</a></p>
 </li>
 </ol>
 </div>

@@ -3,18 +3,18 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_request_body">Request body</a></li>
-<li><a href="#_request_collection">Request collection</a></li>
-<li><a href="#_headers">Headers</a></li>
+<li><a href="#_请求体">请求体</a></li>
+<li><a href="#_请求集合">请求集合</a></li>
+<li><a href="#_请求头">请求头</a></li>
 <li><a href="#_cookies">Cookies</a></li>
-<li><a href="#_content_negotiation">Content negotiation</a></li>
-<li><a href="#_request_methods">Request methods</a></li>
-<li><a href="#_method_spoofing">Method spoofing</a></li>
-<li><a href="#_extending_request">Extending Request</a></li>
+<li><a href="#_内容协商">内容协商</a></li>
+<li><a href="#_请求对象的方法">请求对象的方法</a></li>
+<li><a href="#_方法欺骗">方法欺骗</a></li>
+<li><a href="#_扩展_request">扩展 Request</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This guide gives an outline on how to make use of the HTTP <a href="https://github.com/adonisjs/adonis-framework/blob/develop/src/Request/index.js" target="_blank" rel="noopener">Request</a> object to read data for a request.</p>
+<p>本指南概述了如何使用HTTP <a href="https://github.com/adonisjs/adonis-framework/blob/develop/src/Request/index.js" target="_blank" rel="noopener">Request</a> 对象读取请求的数据。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -23,13 +23,13 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The Node.js raw <code>req</code> object can be accessed as <code>request.request</code>.
+Node.js原始 <code>req</code> 对象可以作为 <code>request.request</code> 访问。
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>AdonisJs passes the current HTTP request object as part of the <a href="http-context#_http_context">context</a> which is sent to all route handlers and middleware.</p>
+<p>AdonisJs传递当前HTTP请求对象作为 <a href="http-context#_http_context">上下文</a> 的一部分，它发送给所有路由处理程序和中间件。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -38,21 +38,19 @@ The Node.js raw <code>req</code> object can be accessed as <code>request.request
 </div>
 </div>
 <div class="paragraph">
-<p>We used <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="noopener">ES6 destructuring</a> to get the <code>request</code> object from context.</p>
+<p>我们使用 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="noopener">ES6解构</a> 从上下文获取 <code>request</code> 对象。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_request_body"><a class="anchor" href="#_request_body"></a><a class="link" href="#_request_body">Request body</a></h2>
+<h2 id="_请求体"><a class="anchor" href="#_请求体"></a><a class="link" href="#_请求体">请求体</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The request object offers a bunch of helpful methods to read the request body. First, make sure that you have installed the body-parser middleware.</p>
-</div>
-<div class="paragraph">
-<p>If not, follow the upcoming steps.</p>
+<p>请求对象提供了一堆有用的方法来读取请求主体。首先，确保你已经安装了body-parser中间件。
+如果没有，请按照下面的步骤操作。</p>
 </div>
 <div class="sect2">
-<h3 id="_setting_up_bodyparser"><a class="anchor" href="#_setting_up_bodyparser"></a><a class="link" href="#_setting_up_bodyparser">Setting up bodyparser</a></h3>
+<h3 id="_设置bodyparser"><a class="anchor" href="#_设置bodyparser"></a><a class="link" href="#_设置bodyparser">设置bodyparser</a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -60,7 +58,7 @@ The Node.js raw <code>req</code> object can be accessed as <code>request.request
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Fullstack and API only boilerplates comes with pre-configured body-parser.
+仅Fullstack和API的模板附带预配置的body-parser。
 </td>
 </tr>
 </table>
@@ -71,7 +69,7 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 </div>
 </div>
 <div class="paragraph">
-<p>Then register the provider inside <code>start/app.js</code> file</p>
+<p>然后在 <code>start/app.js</code> 文件中注册提供者</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -81,7 +79,7 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 </div>
 </div>
 <div class="paragraph">
-<p>Also, register the global middleware inside <code>start/kernel.js</code> file.</p>
+<p>另外，在 <code>start/kernel.js</code> 文件中注册全局中间件。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -92,14 +90,14 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 </div>
 </div>
 <div class="sect2">
-<h3 id="_methods"><a class="anchor" href="#_methods"></a><a class="link" href="#_methods">Methods</a></h3>
+<h3 id="_方法"><a class="anchor" href="#_方法"></a><a class="link" href="#_方法">方法</a></h3>
 <div class="paragraph">
-<p>Following is the list of methods you can call to read the request body.</p>
+<p>以下是您可以调用以读取请求正文的方法列表。</p>
 </div>
 <div class="sect3">
 <h4 id="_all"><a class="anchor" href="#_all"></a><a class="link" href="#_all">all</a></h4>
 <div class="paragraph">
-<p>Returns the request body as an object. This method merges the <code>query params</code> with the <code>request body</code>.</p>
+<p>将请求主体作为对象返回。这个方法将 <code>查询参数</code> 和 <code>请求体</code> 合并在一起。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -110,7 +108,7 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 <div class="sect3">
 <h4 id="_get"><a class="anchor" href="#_get"></a><a class="link" href="#_get">get</a></h4>
 <div class="paragraph">
-<p>Get an object of query params</p>
+<p>获取查询参数的对象</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -121,7 +119,7 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 <div class="sect3">
 <h4 id="_post"><a class="anchor" href="#_post"></a><a class="link" href="#_post">post</a></h4>
 <div class="paragraph">
-<p>Get an object of just request body</p>
+<p>获取请求正文的对象</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -132,7 +130,7 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 <div class="sect3">
 <h4 id="_raw"><a class="anchor" href="#_raw"></a><a class="link" href="#_raw">raw</a></h4>
 <div class="paragraph">
-<p>Get data posted as the raw body.</p>
+<p>获取提交的原始数据。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -141,7 +139,7 @@ Fullstack and API only boilerplates comes with pre-configured body-parser.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If raw data is JSON with <code>Content-type: application/json</code>, then the bodyparser parses it smartly and returns it as part of <code>post</code> method.
+如果原始数据是带有 <code>Content-type：application/json</code> 的JSON，那么bodyparser会巧妙地解析它，并将它作为 <code>post</code> 方法的一部分返回。
 </td>
 </tr>
 </table>
@@ -155,7 +153,7 @@ If raw data is JSON with <code>Content-type: application/json</code>, then the b
 <div class="sect3">
 <h4 id="_only"><a class="anchor" href="#_only"></a><a class="link" href="#_only">only</a></h4>
 <div class="paragraph">
-<p>Returns an object with <code>only</code> specified keys</p>
+<p>使用 <code>only</code> 返回包含指定键的一个对象</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -166,7 +164,7 @@ If raw data is JSON with <code>Content-type: application/json</code>, then the b
 <div class="sect3">
 <h4 id="_except"><a class="anchor" href="#_except"></a><a class="link" href="#_except">except</a></h4>
 <div class="paragraph">
-<p>The opposite of <code>only</code> and returns everything except defined keys.</p>
+<p>与`only`相反，并返回除了定义的键之外的所有内容。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -177,13 +175,13 @@ If raw data is JSON with <code>Content-type: application/json</code>, then the b
 <div class="sect3">
 <h4 id="_input"><a class="anchor" href="#_input"></a><a class="link" href="#_input">input</a></h4>
 <div class="paragraph">
-<p>Get value for a given key only, and it does not exist, return the <code>default</code> value.</p>
+<p>仅为给定键获取值，如果不存在，则返回 <code>默认</code> 值。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const drink = request.input('drink')
 
-// with default value
+// 使用默认值
 const drink = request.input('drink', 'coffee')</code></pre>
 </div>
 </div>
@@ -192,10 +190,10 @@ const drink = request.input('drink', 'coffee')</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_request_collection"><a class="anchor" href="#_request_collection"></a><a class="link" href="#_request_collection">Request collection</a></h2>
+<h2 id="_请求集合"><a class="anchor" href="#_请求集合"></a><a class="link" href="#_请求集合">请求集合</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quite often you want to handle HTML forms that submit an array of data over key/value pairs. <strong>For example:</strong> Form to create multiple users at once.</p>
+<p>通常你想处理通过键/值对提交数据数组的HTML表单。 <strong>例如：</strong> 一次创建多个用户的表单。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -210,7 +208,7 @@ const drink = request.input('drink', 'coffee')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s say we want to get the username and age inside the controller.</p>
+<p>假设我们想要在控制器中获取用户名和年龄。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -221,48 +219,48 @@ const drink = request.input('drink', 'coffee')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The above piece of data is something that you cannot save to the database directly since it is not in the right format.</p>
+<p>上面的数据是你无法直接保存到数据库的东西，因为它的格式不正确。</p>
 </div>
 <div class="paragraph">
-<p>Using <code>request.collect</code> we can get it formatted out of the box.</p>
+<p>使用 <code>request.collect</code> ，我们可以将其格式化为开箱即用的格式。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const users = request.collect(['username', 'age'])
 
-// output
+// 输出
 [{ username: 'virk', age: 26 }, { username: 'nikk', age: 25 }]
 
-// save to db
+// 保存到数据库
 await User.createMany(users)</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_headers"><a class="anchor" href="#_headers"></a><a class="link" href="#_headers">Headers</a></h2>
+<h2 id="_请求头"><a class="anchor" href="#_请求头"></a><a class="link" href="#_请求头">请求头</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Also, you can read headers from the request using one of the following methods.</p>
+<p>此外，您可以使用以下方法之一从请求中读取请求头。</p>
 </div>
 <div class="sect3">
 <h4 id="_header"><a class="anchor" href="#_header"></a><a class="link" href="#_header">header</a></h4>
 <div class="paragraph">
-<p>The header value for a given key.</p>
+<p>给定键的请求头。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const auth = request.header('authorization')
 
-// different word case
+// 不同的单词大小写
 const auth = request.header('Authorization')</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_headers_2"><a class="anchor" href="#_headers_2"></a><a class="link" href="#_headers_2">headers</a></h4>
+<h4 id="_headers"><a class="anchor" href="#_headers"></a><a class="link" href="#_headers">headers</a></h4>
 <div class="paragraph">
-<p>Returns an object of headers.</p>
+<p>返回请求头的对象。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -276,18 +274,18 @@ const auth = request.header('Authorization')</code></pre>
 <h2 id="_cookies"><a class="anchor" href="#_cookies"></a><a class="link" href="#_cookies">Cookies</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cookies are read using one of the following methods</p>
+<p>使用以下方法之一读取Cookies</p>
 </div>
 <div class="sect3">
 <h4 id="_cookie"><a class="anchor" href="#_cookie"></a><a class="link" href="#_cookie">cookie</a></h4>
 <div class="paragraph">
-<p>Returns the value for a key inside cookies. Optionally returns the default value.</p>
+<p>返回cookie中某个键的值。默认返回可选的默认值。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const cartTotal = request.cookie('cart_total')
 
-// with default value
+// 使用默认值
 const cartTotal = request.cookie('cart_total', 0)</code></pre>
 </div>
 </div>
@@ -295,7 +293,7 @@ const cartTotal = request.cookie('cart_total', 0)</code></pre>
 <div class="sect3">
 <h4 id="_cookies_2"><a class="anchor" href="#_cookies_2"></a><a class="link" href="#_cookies_2">cookies</a></h4>
 <div class="paragraph">
-<p>Returns an object of all the cookies</p>
+<p>返回所有cookies的对象</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -303,7 +301,7 @@ const cartTotal = request.cookie('cart_total', 0)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You are supposed to use the following methods to read the cookies set on client side.</p>
+<p>您也可以使用以下方法来读取客户端上设置的Cookie。</p>
 </div>
 </div>
 <div class="sect3">
@@ -317,7 +315,7 @@ const cartTotal = request.cookie('cart_total', 0)</code></pre>
 <div class="sect3">
 <h4 id="_plaincookies"><a class="anchor" href="#_plaincookies"></a><a class="link" href="#_plaincookies">plainCookies</a></h4>
 <div class="paragraph">
-<p>Get an object of raw cookies</p>
+<p>获取原始Cookie的对象</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -328,21 +326,18 @@ const cartTotal = request.cookie('cart_total', 0)</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_content_negotiation"><a class="anchor" href="#_content_negotiation"></a><a class="link" href="#_content_negotiation">Content negotiation</a></h2>
+<h2 id="_内容协商"><a class="anchor" href="#_内容协商"></a><a class="link" href="#_内容协商">内容协商</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation" target="_blank" rel="noopener">Content negotiation</a> is a way for server and client to decide upon the best response type to be returned from the server.</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation" target="_blank" rel="noopener">内容协商</a> 是服务器和客户端决定要返回的最佳响应类型的一种方式从服务器。</p>
 </div>
 <div class="paragraph">
-<p>Since web servers do not only serve web pages, they have to deal with API response in <strong>JSON</strong>, or maybe in <strong>XML</strong>. Instead of creating separate URL&#8217;s for each content type, the consumer can ask the server to return the response in a specific format.</p>
+<p>由于Web服务器不仅提供网页，他们还必须响应API的 <strong>JSON</strong> 或者 <strong>XML</strong> 请求。消费者可以要求服务器以特定格式返回响应，而不是为每种内容类型创建单独的URL。</p>
 </div>
 <div class="paragraph">
-<p>Now to construct the response in a specific format, the server needs to know it first. The same can be done using the <code>accepts</code> method.</p>
-</div>
-<div class="sect3">
-<h4 id="_accepts"><a class="anchor" href="#_accepts"></a><a class="link" href="#_accepts">accepts</a></h4>
-<div class="paragraph">
-<p>Reads the <code>Accept</code> header to know response format.</p>
+<p>现在要以特定的格式构建响应，服务器需要首先知道它。使用 <code>accept</code> 方法可以做到这一点。
+==== accepts
+读取“Accept”请求头以了解响应格式。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -355,11 +350,10 @@ if (bestFormat === 'json') {
 return view.render('users.list', { users })</code></pre>
 </div>
 </div>
-</div>
 <div class="sect3">
 <h4 id="_language"><a class="anchor" href="#_language"></a><a class="link" href="#_language">language</a></h4>
 <div class="paragraph">
-<p>Language can also be negotiated based upon <code>Accept-Language</code> header.</p>
+<p>语言也可以基于 <code>Accept-Language</code> 头部进行协商。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -370,15 +364,15 @@ return view.render('users.list', { users })</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_request_methods"><a class="anchor" href="#_request_methods"></a><a class="link" href="#_request_methods">Request methods</a></h2>
+<h2 id="_请求对象的方法"><a class="anchor" href="#_请求对象的方法"></a><a class="link" href="#_请求对象的方法">请求对象的方法</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Following is the list of all request methods and their usage example</p>
+<p>以下是所有请求对象的方法及其使用示例的列表</p>
 </div>
 <div class="sect3">
 <h4 id="_url"><a class="anchor" href="#_url"></a><a class="link" href="#_url">url</a></h4>
 <div class="paragraph">
-<p>Returns the current request url</p>
+<p>返回当前的请求url</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -389,7 +383,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_originalurl"><a class="anchor" href="#_originalurl"></a><a class="link" href="#_originalurl">originalUrl</a></h4>
 <div class="paragraph">
-<p>The URL with query strings on it</p>
+<p>带有查询字符串的网址</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -400,7 +394,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_method"><a class="anchor" href="#_method"></a><a class="link" href="#_method">method</a></h4>
 <div class="paragraph">
-<p>Returns the request HTTP method.</p>
+<p>返回请求HTTP方法。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -411,7 +405,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_intended"><a class="anchor" href="#_intended"></a><a class="link" href="#_intended">intended</a></h4>
 <div class="paragraph">
-<p>Since Adonisjs allows <a href="#_method_spoofing">method spoofing</a>, you can fetch the actual method using <code>intended</code> method.</p>
+<p>由于Adonisjs允许 <a href="#_method_spoofing">方法欺骗</a>，因此可以使用`intended`方法获取实际的方法。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -422,7 +416,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_ip"><a class="anchor" href="#_ip"></a><a class="link" href="#_ip">ip</a></h4>
 <div class="paragraph">
-<p>Returns the most trusted ip address for the user.</p>
+<p>为返回用户最可信的IP地址。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -433,7 +427,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_ips"><a class="anchor" href="#_ips"></a><a class="link" href="#_ips">ips</a></h4>
 <div class="paragraph">
-<p>Returns an array of ips from most to the least trusted one. It removes the default ip address, which can be accessed via <code>ip</code> method.</p>
+<p>返回从大多数到最不受信任的ips数组。它删除默认可以通过 <code>ip</code> 方法访问的ip地址，。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -444,7 +438,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_subdomains"><a class="anchor" href="#_subdomains"></a><a class="link" href="#_subdomains">subdomains</a></h4>
 <div class="paragraph">
-<p>Returns a list of request subdomains, this method removes <code>www</code> from the list.</p>
+<p>返回请求子域列表，此方法从列表中移除 <code>www</code>。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -455,12 +449,12 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_ajax"><a class="anchor" href="#_ajax"></a><a class="link" href="#_ajax">ajax</a></h4>
 <div class="paragraph">
-<p>Checks for <code>X-Requested-With</code> header to determine if the request is ajax or not.</p>
+<p>检查 <code>X-Requested-With</code> 头以确定请求是否为ajax。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">if (request.ajax()) {
-  // do something
+  // 做点什么
 }</code></pre>
 </div>
 </div>
@@ -468,15 +462,15 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_pjax"><a class="anchor" href="#_pjax"></a><a class="link" href="#_pjax">pjax</a></h4>
 <div class="paragraph">
-<p><a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">Pjax</a> is an evolved way to make use of Ajax to deliver better user experience on traditional apps. In rails world, it is known as Turbolinks.</p>
+<p><a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">Pjax</a> 是利用Ajax在传统应用程序上提供更好用户体验的一种演进方式。在Rails世界，它被称为Turbolinks。</p>
 </div>
 <div class="paragraph">
-<p>This methods looks at <code>X-PJAX</code> header to identify if request is pjax or not.</p>
+<p>此方法查看 <code>X-PJAX</code> 头以确定请求是否为pjax。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">if (request.pjax()) {
-  // do something
+  // 做点什么
 }</code></pre>
 </div>
 </div>
@@ -484,7 +478,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_hostname"><a class="anchor" href="#_hostname"></a><a class="link" href="#_hostname">hostname</a></h4>
 <div class="paragraph">
-<p>Returns the request hostname</p>
+<p>返回请求主机名</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -495,7 +489,7 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_protocol"><a class="anchor" href="#_protocol"></a><a class="link" href="#_protocol">protocol</a></h4>
 <div class="paragraph">
-<p>Return request protocol.</p>
+<p>返回请求协议。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -506,11 +500,11 @@ return view.render('users.list', { users })</code></pre>
 <div class="sect3">
 <h4 id="_match"><a class="anchor" href="#_match"></a><a class="link" href="#_match">match</a></h4>
 <div class="paragraph">
-<p>Matches a set of expressions against the current request URL to tell if it matches one.</p>
+<p>匹配当前请求URL的一组表达式以判断它是否匹配。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight line-numbers"><code class="language-js" data-lang="js">// current request url - posts/1
+<pre class="highlight line-numbers"><code class="language-js" data-lang="js">// 当前请求地址 - posts/1
 
 request.match(['posts/:id']) // returns true</code></pre>
 </div>
@@ -519,12 +513,12 @@ request.match(['posts/:id']) // returns true</code></pre>
 <div class="sect3">
 <h4 id="_hasbody"><a class="anchor" href="#_hasbody"></a><a class="link" href="#_hasbody">hasBody</a></h4>
 <div class="paragraph">
-<p>A boolean indicating if the request has post body.  It is mainly used by the bodyparser to know whether to parse the body or not.</p>
+<p>指示请求是否具有请求体的布尔值。它主要用于bodyparser知道是否解析请求体。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">if (request.hasBody()) {
-  // do something
+  // 做点什么
 }</code></pre>
 </div>
 </div>
@@ -532,11 +526,11 @@ request.match(['posts/:id']) // returns true</code></pre>
 <div class="sect3">
 <h4 id="_is"><a class="anchor" href="#_is"></a><a class="link" href="#_is">is</a></h4>
 <div class="paragraph">
-<p>The <code>is</code> method returns the best matching content type for the current request. The check is entirely based upon the <code>content-type</code> header.</p>
+<p><code>is</code> 方法为当前请求返回最匹配的内容类型。该检查完全基于 <code>content-type</code> 标题。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight line-numbers"><code class="language-js" data-lang="js">// assuming content-type is `application/json`
+<pre class="highlight line-numbers"><code class="language-js" data-lang="js">// 假设 content-type 是 `application/json`
 
 request.is(['json', 'html']) // returns - json
 
@@ -547,13 +541,13 @@ request.is(['application/*']) // returns - application/json</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_method_spoofing"><a class="anchor" href="#_method_spoofing"></a><a class="link" href="#_method_spoofing">Method spoofing</a></h2>
+<h2 id="_方法欺骗"><a class="anchor" href="#_方法欺骗"></a><a class="link" href="#_方法欺骗">方法欺骗</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>HTML forms are only capable of making <code>GET</code> and <code>POST</code> requests, which means you cannot utilize the REST conventions of using other HTTP methods like <strong>PUT</strong>, <strong>DELETE</strong> and so on.</p>
+<p>HTML表单只能发起 <code>GET</code> 和 <code>POST</code> 请求​​，这意味着你不能使用其他HTTP方法（如 <strong>PUT</strong>， <strong>DELETE</strong> 等）的REST约定。</p>
 </div>
 <div class="paragraph">
-<p>AdonisJs makes it simpler bypassing the request method as part of the query string and then it executes the correct Route for you automatically.</p>
+<p>AdonisJs使得它更简单地绕过请求方法作为查询字符串的一部分，然后它会自动为您执行正确的路由。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -566,25 +560,25 @@ request.is(['application/*']) // returns - application/json</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The above works in following cases.</p>
+<p>该功能在满足以下条件时可用。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The original request method is <code>POST</code>.</p>
+<p>原始请求方法是 <code>POST</code> 。</p>
 </li>
 <li>
-<p><code>allowMethodSpoofing</code> is enabled inside <code>config/app.js</code> file.</p>
+<p><code>config/app.js</code> 文件中启用 <code>allowMethodSpoofing</code>。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_extending_request"><a class="anchor" href="#_extending_request"></a><a class="link" href="#_extending_request">Extending Request</a></h2>
+<h2 id="_扩展_request"><a class="anchor" href="#_扩展_request"></a><a class="link" href="#_扩展_request">扩展 Request</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Quite often you have the requirement of extending the <code>Request</code> prototype by attaching new methods. Same can be done by defining a macro on the Request class.</p>
+<p>通常你需要通过附加新方法来扩展 <code>Request</code> 原型。 通过在Request类上定义一个宏也可以做到这一点。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -593,7 +587,7 @@ request.is(['application/*']) // returns - application/json</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Since the code to extend the <code>Request</code> needs to be executed once, you can make use of providers or ignitor hooks. Make sure to read <a href="">how to extend</a> guide before continuing.
+由于扩展 <code>Request</code> 的代码需要执行一次，因此可以使用提供者或点火器挂钩。 请务必在继续之前阅读 <a href="">如何扩展</a>。
 </td>
 </tr>
 </table>

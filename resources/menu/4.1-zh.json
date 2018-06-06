@@ -108,7 +108,7 @@
     "path": "content/4.1-zh/04-http-lifecycle/07-file-uploads.adoc",
     "permalink": "file-uploads",
     "title": "文件上传",
-    "category": "http-lifecycle",
+    "category": "HTTP生命周期",
     "savePath": "resources/docs/4.1-zh/file-uploads.html"
   },
   {

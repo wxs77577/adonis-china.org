@@ -3,24 +3,23 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_setup">Setup</a></li>
-<li><a href="#_creating_database_tables">Creating database tables</a></li>
-<li><a href="#_using_database">Using database</a></li>
-<li><a href="#_saving_posts">Saving posts</a></li>
-<li><a href="#_next_steps">Next Steps</a></li>
+<li><a href="#_设置">设置</a></li>
+<li><a href="#_创建数据库表">创建数据库表</a></li>
+<li><a href="#_使用数据库">使用数据库</a></li>
+<li><a href="#_保存帖子">保存帖子</a></li>
+<li><a href="#_下一步">下一步</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>When getting started with any web framework, the first question one often ask is: "<strong>How to create data-driven applications?</strong>". By the end of this guide, you learn how easy AdonisJs makes to interact with SQL databases.</p>
+<p>当开始使用任何Web框架时，人们经常会问的第一个问题是：“<strong>如何创建数据驱动的应用程序？</strong>”。在本指南结束时，您将了解AdonisJs与SQL数据库交互的便捷性。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_setup"><a class="anchor" href="#_setup"></a><a class="link" href="#_setup">Setup</a></h2>
+<h2 id="_设置"><a class="anchor" href="#_设置"></a><a class="link" href="#_设置">设置</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The database provider is not configured with the <strong>slim application blueprint</strong>, but setting it up as simple as installing it from
-npm.</p>
+<p><strong>slim 应用程序模板</strong> 中没有配置数据库提供程序，但设置它就像从npm安装它一样简单。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -35,15 +34,15 @@ create: config/database.js</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Post installation, you would have seen a new web page getting popped up in your browser. That is the minimal instructions you need to follow to setup the installed package.</p>
+<p>安装后，你会看到一个新的网页在浏览器中弹出。这是您需要遵循的设置已安装软件包的最基本指示。</p>
 </div>
 <div class="paragraph">
-<p>Feel free to ignore the setup instructions and follow this guide instead.</p>
+<p>请随意忽略设置说明并改为按照本指南进行操作。</p>
 </div>
 <div class="sect2">
-<h3 id="_registering_provider"><a class="anchor" href="#_registering_provider"></a><a class="link" href="#_registering_provider">Registering provider</a></h3>
+<h3 id="_注册提供者"><a class="anchor" href="#_注册提供者"></a><a class="link" href="#_注册提供者">注册提供者</a></h3>
 <div class="paragraph">
-<p>As always we need to register the database provider inside <code>start/app.js</code> file.</p>
+<p>与往常一样，我们需要在 <code>start/app.js</code> 文件中注册数据库提供者。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -58,12 +57,12 @@ const aceProviders = [
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configuration"><a class="anchor" href="#_configuration"></a><a class="link" href="#_configuration">Configuration</a></h3>
+<h3 id="_配置"><a class="anchor" href="#_配置"></a><a class="link" href="#_配置">配置</a></h3>
 <div class="paragraph">
-<p>The database package <strong>(lucid)</strong> supports all popular SQL databases out of the box. You can learn more about it <a href="database#_supported_databases">here</a></p>
+<p>数据库包 <strong>（lucid）</strong> 支持所有常用的SQL数据库。您可以点 <a href="database#_supported_databases">这里</a> 了解更多关于它的信息。</p>
 </div>
 <div class="paragraph">
-<p>By default, the configuration file (config/database.js) makes use of <code>sqlite</code> database and needs a SQLite driver to be installed from npm.</p>
+<p>默认情况下，配置文件（config/database.js）使用 <code>sqlite</code> 数据库，并且需要从npm安装SQLite驱动程序。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -74,16 +73,17 @@ const aceProviders = [
 </div>
 </div>
 <div class="sect1">
-<h2 id="_creating_database_tables"><a class="anchor" href="#_creating_database_tables"></a><a class="link" href="#_creating_database_tables">Creating database tables</a></h2>
+<h2 id="_创建数据库表"><a class="anchor" href="#_创建数据库表"></a><a class="link" href="#_创建数据库表">创建数据库表</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now since the setup process has been completed, let&#8217;s get started by creating a database table and run some queries to interact with it.</p>
+<p>现在，安装过程完成了，我们开始创建一个数据库表并运行一些查询来与之交互。</p>
 </div>
 <div class="paragraph">
-<p>Creating database tables in AdonisJs is done via <a href="https://en.wikipedia.org/wiki/Schema_migration" target="_blank" rel="noopener">migrations</a>. It is fine if you do not understand the concept of migrations properly, just follow along and you will find them super easy and useful.</p>
+<p>通过 <a href="https://en.wikipedia.org/wiki/Schema_migration" target="_blank" rel="noopener">迁移</a> 在AdonisJs中创建数据库表。
+如果你不能正确理解迁移的概念也没关系，随后你会发现它们非常容易和有用。</p>
 </div>
 <div class="paragraph">
-<p>More <code>adonis</code> ❤️  &nbsp; to create the migration. Also, select the <code>Create table</code> option on prompt.</p>
+<p>更多 <code>adonis</code> ❤️ &nbsp; 创建迁移。在提示中选择“Create table”选项。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -97,7 +97,7 @@ const aceProviders = [
 </div>
 </div>
 <div class="paragraph">
-<p>The created file gives you an interface to create the database table structure using JavaScript. Let&#8217;s see it in action.</p>
+<p>创建的文件为您提供了一个使用JavaScript创建数据库表结构的接口。让我们看看它。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -124,25 +124,25 @@ module.exports = BlogPostSchema</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The migration file has two methods</p>
+<p>迁移文件有两个方法</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">up</dt>
 <dd>
-<p>The <code>up</code> method is used to take action on a table. It can be creating a new table or altering the existing table.</p>
+<p><code>up</code> 方法用于在表上执行操作。它可以创建一个新表或更改现有表。</p>
 </dd>
 <dt class="hdlist1">down</dt>
 <dd>
-<p>The <code>down</code> method is the reverse of the up action. When <code>up</code> method creates a table, you simply drop it inside the down method.</p>
+<p><code>down</code> 方法与up行为相反。当 <code>up</code> 方法创建一个表，你可以在down方法内删除它。</p>
 <div class="paragraph">
-<p>The beauty of this approach makes it easier to roll back the database changes.</p>
+<p>这种方法的优点是可以更容易地回滚数据库更改。</p>
 </div>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Now finally we can run another command to create the table using the schema file we just updated.</p>
+<p>现在我们可以运行另一个命令来使用我们刚刚更新的模式文件来创建表。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -157,25 +157,25 @@ Database migrated successfully in 86 ms</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s take a moment to recap on what we did so far.</p>
+<p>让我们花点时间回顾一下迄今为止我们做了什么。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>We installed <code>@adonisjs/lucid</code> package from npm and registered the required providers.</p>
+<p>我们从npm安装了 <code>@adonisjs/lucid</code> 软件包并注册了所需的提供者。</p>
 </li>
 <li>
-<p>Next, used the migrations feature to create a schema file and migrated the database.</p>
+<p>接下来，使用迁移功能创建模式文件并迁移数据库。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_database"><a class="anchor" href="#_using_database"></a><a class="link" href="#_using_database">Using database</a></h2>
+<h2 id="_使用数据库"><a class="anchor" href="#_使用数据库"></a><a class="link" href="#_使用数据库">使用数据库</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Let&#8217;s see how we can use the <strong>Database provider</strong> to fetch all the blog posts from the database.</p>
+<p>让我们看看我们如何使用 <strong>数据库提供者</strong> 从数据库中获取所有博客文章。</p>
 </div>
 <div class="listingblock">
 <div class="title">start/routes.js</div>
@@ -189,23 +189,23 @@ Route.get('/posts', async () =&gt; {
 </div>
 </div>
 <div class="paragraph">
-<p>Assuming the web server is running on <code>port=3333</code>. If you visit <a href="http://localhost:3333/posts">localhost:3333/posts</a>, you see an empty array is returned, that is because we have not saved any posts inside the database table.</p>
+<p>假设网络服务器在 <code>port=3333</code> 上运行。如果您访问 <a href="http://localhost:3333/posts">localhost:3333/posts</a>，您会看到一个空数组被返回，这是因为我们没有在数据库表中保存任何帖子。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_saving_posts"><a class="anchor" href="#_saving_posts"></a><a class="link" href="#_saving_posts">Saving posts</a></h2>
+<h2 id="_保存帖子"><a class="anchor" href="#_保存帖子"></a><a class="link" href="#_保存帖子">保存帖子</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The ideal way is to have an HTML form to create the posts, but for the sake the simplicity, we take a shortcut and use the <strong>Adonis repl</strong> to interact with the database.</p>
+<p>理想的方法是使用HTML表单创建帖子，但为了简单起见，我们采用快捷方式并使用 <strong>Adonis repl</strong> 与数据库进行交互。</p>
 </div>
 <div class="sect2">
-<h3 id="_what_is_repl"><a class="anchor" href="#_what_is_repl"></a><a class="link" href="#_what_is_repl">What is repl?</a></h3>
+<h3 id="_什么是_repl"><a class="anchor" href="#_什么是_repl"></a><a class="link" href="#_什么是_repl">什么是 repl?</a></h3>
 <div class="paragraph">
-<p>AdonisJs has an inbuilt command line repl, which can be used to interact with your application from command line. Let&#8217;s see it in action to create a post.</p>
+<p>AdonisJs有一个内置命令行repl，可用于从命令行与应用程序进行交互。让我们看看它在行动创建一个职位。</p>
 </div>
 <div class="paragraph">
-<p>The following command starts the repl session, and you are free to run Node.js code inside it.</p>
+<p>用以下命令启动repl会话，并且可以在其中运行Node.js代码。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -213,7 +213,7 @@ Route.get('/posts', async () =&gt; {
 </div>
 </div>
 <div class="paragraph">
-<p>So paste the following code inside it</p>
+<p>因此，请在其中粘贴以下代码</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -222,9 +222,9 @@ Route.get('/posts', async () =&gt; {
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Animated Gif</dt>
+<dt class="hdlist1">动图</dt>
 <dd>
-<p>Check out the following gif to see it in action</p>
+<p>看看下面的gif</p>
 <div class="paragraph">
 <p><span class="image"><img src="http://res.cloudinary.com/adonisjs/image/upload/q_100/v1502354650/Adonis-repl_uiaar3.gif" alt="Adonis repl uiaar3"></span></p>
 </div>
@@ -232,27 +232,27 @@ Route.get('/posts', async () =&gt; {
 </dl>
 </div>
 <div class="paragraph">
-<p>Now if you refresh the browser <a href="http://localhost:3333/posts">localhost:3333/posts</a> you see the recently created blog post being returned as JSON.</p>
+<p>现在，如果刷新浏览器 <a href="http://localhost:3333/posts">localhost:3333/posts</a>，您会看到最近创建的博文作为JSON返回。</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_next_steps"><a class="anchor" href="#_next_steps"></a><a class="link" href="#_next_steps">Next Steps</a></h2>
+<h2 id="_下一步"><a class="anchor" href="#_下一步"></a><a class="link" href="#_下一步">下一步</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This guide was just an introduction to the Database provider, and there is a lot you can do when it comes to data-driven applications. Consider learning more about</p>
+<p>本指南只是对数据库提供者的介绍，利用数据驱动的应用程序时，您可以做很多事情。 考虑了解更多</p>
 </div>
 <div class="olist ol-shrinked">
 <ol class="ol-shrinked">
 <li>
-<p><a href="query-builder">Database query builder</a></p>
+<p><a href="query-builder">数据库查询生成器</a></p>
 </li>
 <li>
-<p><a href="lucid">Lucid models</a></p>
+<p><a href="lucid">Lucid 模型</a></p>
 </li>
 <li>
-<p><a href="seeds-and-factories">Seeds &amp; factories</a></p>
+<p><a href="seeds-and-factories">种子和工厂</a></p>
 </li>
 </ol>
 </div>

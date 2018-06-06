@@ -3,24 +3,24 @@
 <div id="toc" class="toc">
 <div id="toctitle" class="title">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_getting_started">Getting started</a></li>
-<li><a href="#_exception_handling">Exception handling</a></li>
-<li><a href="#_routing">Routing</a></li>
-<li><a href="#_validator">Validator</a></li>
+<li><a href="#_起步">起步</a></li>
+<li><a href="#_异常处理">异常处理</a></li>
+<li><a href="#_路由">路由</a></li>
+<li><a href="#_验证器">验证器</a></li>
 <li><a href="#_lucid">Lucid</a></li>
-<li><a href="#_goodies">Goodies</a></li>
+<li><a href="#_goodies_美味的">Goodies（美味的？）</a></li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The 4.1 release contains bunch of <strong>bug fixes</strong> and <strong>API improvements</strong> to keep the code base simple and less magical. I tried to keep the breaking changes as few as possible, however cannot eliminate them completely.</p>
+<p>4.1版本包含一系列*错误修复*和*API改进*，以保持代码基础简单且不复杂。 我试着让变化的东西少些，尽管如此还是不能一点没有。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a><a class="link" href="#_getting_started">Getting started</a></h2>
+<h2 id="_起步"><a class="anchor" href="#_起步"></a><a class="link" href="#_起步">起步</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The first step is to get the latest version of all dependencies. I personally use <a href="https://www.npmjs.com/package/npm-check">npm-check</a> to pull latest versions of packages.</p>
+<p>第一步是获取所有依赖项的最新版本。 我个人使用<a href="https://www.npmjs.com/package/npm-check">npm-check</a>来拉取最新版本的软件包。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -28,7 +28,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Run the following command to interactively update dependencies.</p>
+<p>运行以下命令交互式更新依赖项。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -38,18 +38,18 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exception_handling"><a class="anchor" href="#_exception_handling"></a><a class="link" href="#_exception_handling">Exception handling</a></h2>
+<h2 id="_异常处理"><a class="anchor" href="#_异常处理"></a><a class="link" href="#_异常处理">异常处理</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>One of the biggest changes have been done in the <a href="https://github.com/adonisjs/adonis-framework/issues/718">Global exception handler</a>.</p>
+<p>其中一个最大的改变已经在<a href="https://github.com/adonisjs/adonis-framework/issues/718">全局异常处理器</a>完成</p>
 </div>
 <div class="paragraph">
-<p>Make the following changes inside <code>app/Exceptions/Handler.js</code> file. Feel free to ignore this section, if you never created the global exception handler.</p>
+<p>在 <code>app/Exceptions/Handler.js</code> 文件中进行一下更改. 如果你从未创建过全局异常处理器，请忽略此部分。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Make sure your exception handler extends the <code>BaseExceptionHandler</code>.</p>
+<p>确保你的异常处理器继承 <code>BaseExceptionHandler</code>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">const BaseExceptionHandler = use('BaseExceptionHandler')
@@ -60,7 +60,7 @@ class ExceptionHandler extends BaseExceptionHandler {
 </div>
 </li>
 <li>
-<p>Call <code>super.handle</code> for exceptions you don&#8217;t want to handle.</p>
+<p>调用 <code>super.handle</code> 来处理你不想处理的异常。</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight line-numbers"><code class="language-js" data-lang="js">class ExceptionHandler extends BaseExceptionHandler {
@@ -77,22 +77,22 @@ class ExceptionHandler extends BaseExceptionHandler {
 </div>
 </li>
 <li>
-<p>At last you can remove <code>Exception.bind</code> calls from your codebase, since all exceptions will be routed to the global exception handler.</p>
+<p>最后，您可以从代码库中移除 <code>Exception.bind</code> 调用，因为所有异常都将被路由到全局异常处理程序。</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_routing"><a class="anchor" href="#_routing"></a><a class="link" href="#_routing">Routing</a></h2>
+<h2 id="_路由"><a class="anchor" href="#_路由"></a><a class="link" href="#_路由">路由</a></h2>
 <div class="sectionbody">
 <div class="sect3">
 <h4 id="_route_url"><a class="anchor" href="#_route_url"></a><a class="link" href="#_route_url">Route.url</a></h4>
 <div class="paragraph">
-<p>The <code>Route.url</code> generates a fully qualified URL to a pre-registered route. Earlier the <code>domain</code> was passed as a string literal and now it is accepted as an object.</p>
+<p>The <code>Route.url</code> 为预注册路由生成一个完全限定路由。 早前 <code>domain</code> 以字符串形式传递，现在它被接受为对象。</p>
 </div>
 <div class="paragraph">
-<p>Earlier</p>
+<p>早前</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -100,7 +100,7 @@ class ExceptionHandler extends BaseExceptionHandler {
 </div>
 </div>
 <div class="paragraph">
-<p>Now</p>
+<p>现在</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -111,18 +111,18 @@ class ExceptionHandler extends BaseExceptionHandler {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_validator"><a class="anchor" href="#_validator"></a><a class="link" href="#_validator">Validator</a></h2>
+<h2 id="_验证器"><a class="anchor" href="#_验证器"></a><a class="link" href="#_验证器">验证器</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The validator provider now uses latest version of Indicative. Here&#8217;s the list of breaking changes due to API changes done in Indicative.</p>
+<p>验证器使用的是最新版的Indicative. 这里列出了一些由于Indicative更新做出的一些更改。</p>
 </div>
 <div class="sect3">
-<h4 id="_formatters"><a class="anchor" href="#_formatters"></a><a class="link" href="#_formatters">formatters</a></h4>
+<h4 id="_格式器"><a class="anchor" href="#_格式器"></a><a class="link" href="#_格式器">格式器</a></h4>
 <div class="paragraph">
-<p>There is no concept of named formatters anymore. If you want to use a pre-existing formatter, you pass it as a reference, instead of passing it&#8217;s name.</p>
+<p>这里没有更多的格式器命名概念. 如果你想使用一个预先存在的格式器, 将它作为引用传递，而不是传递它的名称。</p>
 </div>
 <div class="paragraph">
-<p>Earlier</p>
+<p>早前</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -131,7 +131,7 @@ validate(data, rules, messages, 'jsonapi')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now</p>
+<p>现在</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -140,10 +140,10 @@ validate(data, rules, messages, formatters.JsonApi)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The same applies to route validators too.</p>
+<p>这同样适用于路由验证器。</p>
 </div>
 <div class="paragraph">
-<p>Earlier</p>
+<p>早前</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -155,7 +155,7 @@ validate(data, rules, messages, formatters.JsonApi)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now</p>
+<p>现在</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -170,9 +170,9 @@ class StoreUser {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_configure"><a class="anchor" href="#_configure"></a><a class="link" href="#_configure">configure</a></h4>
+<h4 id="_配置"><a class="anchor" href="#_配置"></a><a class="link" href="#_配置">配置</a></h4>
 <div class="paragraph">
-<p>New version of Indicative exposes the <a href="http://indicative.adonisjs.com/docs/api/configure">configure</a> method to define library wide defaults. They same can be used with Validator provider too.</p>
+<p>新版本的Indicative公开了<a href="http://indicative.adonisjs.com/docs/api/configure">配置</a>方法来定义库的默认值。 它们也可以与验证器一起使用。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -190,15 +190,15 @@ configure({
 <h2 id="_lucid"><a class="anchor" href="#_lucid"></a><a class="link" href="#_lucid">Lucid</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Date formatting was inconsistent with newly created records and already existing records. Same has been fixed in the newer release with a <strong>small breaking change</strong>. Make sure to read the <a href="https://github.com/adonisjs/adonis-lucid/issues/245">related issue</a>.</p>
+<p>日期格式与新创建的记录和已有的记录不一致。在新的版本中，同样的问题也被修正了。一定要阅读的<a href="https://github.com/adonisjs/adonis-lucid/issues/245">related issue</a>。</p>
 </div>
 <div class="sect3">
-<h4 id="_dates"><a class="anchor" href="#_dates"></a><a class="link" href="#_dates">dates</a></h4>
+<h4 id="_日期"><a class="anchor" href="#_日期"></a><a class="link" href="#_日期">日期</a></h4>
 <div class="paragraph">
-<p>The date fields will longer be casted to <code>moment</code> instances on the model instance. For example</p>
+<p>在模型实例上，日期字段将被更持久地转换为 <code>moment</code> 实例。例如</p>
 </div>
 <div class="paragraph">
-<p>Earlier</p>
+<p>早前</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -207,7 +207,7 @@ user.created_at instanceof moment // true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now</p>
+<p>现在</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -216,10 +216,10 @@ user.created_at instanceof moment // false</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This change prevents you from mutating the date on the model instance directly and instead make use of <code>castDates</code> hook to mutate the date when you serialize the model properties.</p>
+<p>此更改可防止您直接在模型实例上更改日期，而是在序列化模型属性时使用 <code>castdate</code> 钩子来更改日期。</p>
 </div>
 <div class="paragraph">
-<p>The <code>castDates</code> hook will work as earlier</p>
+<p><code>castDates</code> 钩子会像以前一样工作。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -237,27 +237,28 @@ user.created_at instanceof moment // false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_goodies"><a class="anchor" href="#_goodies"></a><a class="link" href="#_goodies">Goodies</a></h2>
+<h2 id="_goodies_美味的"><a class="anchor" href="#_goodies_美味的"></a><a class="link" href="#_goodies_美味的">Goodies（美味的？）</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bunch of bug fixes have been done to keep the codebase reliable. Also a handful of perfomance improvements have been done.</p>
+<p>为了保持代码库的可靠性，已经进行了大量的bug修复。此外，还做了一些改进。</p>
 </div>
 <div class="sect3">
-<h4 id="_validator_2"><a class="anchor" href="#_validator_2"></a><a class="link" href="#_validator_2">Validator</a></h4>
+<h4 id="_验证器_2"><a class="anchor" href="#_验证器_2"></a><a class="link" href="#_验证器_2">验证器</a></h4>
 <div class="paragraph">
-<p>Since indicative is written from groundup, the new version is <code>2x faster</code> than the old one.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_middleware"><a class="anchor" href="#_middleware"></a><a class="link" href="#_middleware">Middleware</a></h4>
-<div class="paragraph">
-<p>The middleware parsing layer now resolves all middleware at the time of booting the app and just instantiates a new instance of them for each request. Whereas earlier the <strong>resolve</strong> process was done for each request.</p>
+<p>Since indicative is written from groundup, the new version is <code>2x faster</code> than the old one.
+由于indicative是又groundup编写，所以新版本比旧版本快2倍。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_betters_errors"><a class="anchor" href="#_betters_errors"></a><a class="link" href="#_betters_errors">Betters errors</a></h4>
+<h4 id="_中间件"><a class="anchor" href="#_中间件"></a><a class="link" href="#_中间件">中间件</a></h4>
 <div class="paragraph">
-<p>The errors will appear in a nice formatted way on your terminal as shown in the screenshot.</p>
+<p>中间件解析层现在在启动应用程序时解析所有中间件，并为每个请求实例化它们的一个新实例。而之前的*解析*过程是针对每个请求而完成的。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_优化报错"><a class="anchor" href="#_优化报错"></a><a class="link" href="#_优化报错">优化报错</a></h4>
+<div class="paragraph">
+<p>报错将以一种很好的格式化方式显示在您的终端上，如屏幕截图所示。</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="https://pbs.twimg.com/media/DTHfXErU8AADIyQ.png" alt="DTHfXErU8AADIyQ"></span></p>
